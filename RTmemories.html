@@ -1,0 +1,2928 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>❤️ Baby Queen &amp; Baby Boss — 情侶專屬紀念網站</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans HK"', '"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            cream: '#FFFDF9',
+            beige: '#F6EFE6',
+            milktea: '#D8B899',
+            milkteaLight: '#EAD7C3',
+            caramel: '#B88456',
+            coffee: '#4A3525',
+            coffeeSoft: '#7D5E46',
+            misty: '#8FAEC4',
+            coral: '#E58A7B',
+          },
+          boxShadow: {
+            sticker: '0 6px 0 #C9A37E, 0 12px 24px rgba(74, 53, 37, 0.10)',
+            stickerSm: '0 3px 0 #C9A37E, 0 6px 14px rgba(74, 53, 37, 0.08)',
+            glass: '0 10px 35px rgba(74, 53, 37, 0.08)',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* ==========================================================================
+       奶油感漸層、水波紋背景、慢速漂浮泡泡 & 磨砂玻璃設計
+       ========================================================================== */
+    body {
+      font-family: 'Noto Sans HK', 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(155deg, #FFFDF9 0%, #F8F0E5 42%, #EFE0CE 78%, #E6D2BC 100%);
+      color: #4A3525;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* 淡淡水波紋背景層 */
+    .water-ripple-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.45;
+      background-image:
+        radial-gradient(circle at 18% 22%, rgba(216, 184, 153, 0.28) 0%, transparent 22%),
+        radial-gradient(circle at 82% 16%, rgba(143, 174, 196, 0.20) 0%, transparent 26%),
+        radial-gradient(circle at 74% 78%, rgba(229, 138, 123, 0.16) 0%, transparent 28%),
+        repeating-radial-gradient(circle at 50% 50%, rgba(184, 132, 86, 0.035) 0px, rgba(184, 132, 86, 0.035) 2px, transparent 2px, transparent 36px);
+      animation: rippleShift 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes rippleShift {
+      0% { transform: scale(1) translate(0px, 0px); }
+      50% { transform: scale(1.03) translate(-8px, 6px); }
+      100% { transform: scale(1.01) translate(8px, -6px); }
+    }
+
+    /* 慢速漂浮泡泡動畫 */
+    .floating-bubble {
+      position: fixed;
+      border-radius: 9999px;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.85), rgba(216, 184, 153, 0.22) 65%, rgba(184, 132, 86, 0.08));
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(2px);
+      animation: floatBubble linear infinite;
+    }
+
+    @keyframes floatBubble {
+      0% {
+        transform: translateY(105vh) translateX(0px) scale(0.92);
+        opacity: 0;
+      }
+      12% {
+        opacity: 0.75;
+      }
+      50% {
+        transform: translateY(48vh) translateX(18px) scale(1.03);
+        opacity: 0.65;
+      }
+      88% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-14vh) translateX(-14px) scale(0.96);
+        opacity: 0;
+      }
+    }
+
+    /* 磨砂玻璃半透明層 */
+    .glass-card {
+      background: rgba(255, 253, 249, 0.76);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 12px 30px rgba(74, 53, 37, 0.07);
+    }
+
+    .glass-milktea {
+      background: rgba(246, 239, 230, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(216, 184, 153, 0.55);
+    }
+
+    /* 貼紙風按鈕與標籤 */
+    .sticker-btn {
+      background: linear-gradient(180deg, #FFFDF9 0%, #F9EFE3 100%);
+      border: 2px solid #D8B899;
+      box-shadow: 0 4px 0 #C59E78, 0 8px 18px rgba(74, 53, 37, 0.08);
+      transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.16s ease, background 0.2s ease;
+    }
+
+    .sticker-btn:hover:not(:disabled) {
+      transform: translateY(-2px) rotate(-0.5deg);
+      box-shadow: 0 6px 0 #C59E78, 0 12px 22px rgba(74, 53, 37, 0.12);
+      background: linear-gradient(180deg, #FFFFFF 0%, #FDF5EA 100%);
+    }
+
+    .sticker-btn:active:not(:disabled) {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #C59E78, 0 3px 8px rgba(74, 53, 37, 0.08);
+    }
+
+    .sticker-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    /* 可愛扭蛋機搖晃、旋鈕轉動、膠囊裂開與愛心彩帶微互動 */
+    @keyframes gachaShake {
+      0%, 100% { transform: rotate(0deg) translateY(0); }
+      15% { transform: rotate(-7deg) translateY(-4px); }
+      30% { transform: rotate(7deg) translateY(-6px); }
+      45% { transform: rotate(-6deg) translateY(-4px); }
+      60% { transform: rotate(6deg) translateY(-5px); }
+      75% { transform: rotate(-3deg) translateY(-2px); }
+      90% { transform: rotate(3deg) translateY(0); }
+    }
+
+    .gacha-shaking {
+      animation: gachaShake 0.85s ease-in-out infinite;
+    }
+
+    @keyframes crankSpin {
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(190deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .crank-spinning {
+      animation: crankSpin 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+    }
+
+    @keyframes capsuleDrop {
+      0% { transform: translateY(-90px) scale(0.5) rotate(-35deg); opacity: 0; }
+      55% { transform: translateY(10px) scale(1.08) rotate(12deg); opacity: 1; }
+      78% { transform: translateY(-8px) scale(0.97) rotate(-4deg); }
+      100% { transform: translateY(0px) scale(1) rotate(0deg); opacity: 1; }
+    }
+
+    .capsule-dropping {
+      animation: capsuleDrop 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes popReveal {
+      0% { transform: scale(0.75) translateY(12px); opacity: 0; }
+      70% { transform: scale(1.04) translateY(-2px); opacity: 1; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .pop-reveal {
+      animation: popReveal 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes heartFloatBurst {
+      0% { transform: translateY(0) scale(0.6) rotate(0deg); opacity: 0; }
+      25% { opacity: 1; }
+      100% { transform: translateY(-58px) scale(1.2) rotate(18deg); opacity: 0; }
+    }
+
+    .heart-burst-item {
+      animation: heartFloatBurst 1.1s ease-out forwards;
+    }
+
+    .kawaii-tilt {
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease;
+    }
+
+    .kawaii-tilt:hover {
+      transform: translateY(-3px) rotate(0.6deg);
+    }
+
+    /* 小紅書瀑布流佈局 */
+    .masonry-grid {
+      column-count: 1;
+      column-gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      .masonry-grid { column-count: 2; }
+    }
+    @media (min-width: 1024px) {
+      .masonry-grid { column-count: 3; }
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+    }
+
+    /* 隱藏橫向滾動條 */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* 自訂捲軸 */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F6EFE6;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D8B899;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #B88456;
+    }
+  </style>
+</head>
+<body class="relative selection:bg-milktea/50 selection:text-coffee">
+
+  <!-- 水波紋背景與慢速漂浮泡泡 -->
+  <div class="water-ripple-bg" aria-hidden="true"></div>
+  <div id="bubblesContainer" aria-hidden="true"></div>
+
+  <!-- Toast 提示訊息框 (不使用 alert/confirm) -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-[100] flex flex-col gap-2 max-w-sm w-full px-4 sm:px-0 pointer-events-none"></div>
+
+  <!-- ========================================================================
+       頂部導航列 (Sticky Frosted Navbar)
+       ======================================================================== -->
+  <header class="sticky top-0 z-40 glass-card border-b border-milktea/50">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between gap-2">
+      <!-- 品牌 Logo -->
+      <button onclick="navigateTo('/')" class="flex items-center gap-2.5 text-left group cursor-pointer focus:outline-none">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-coral/80 to-caramel flex items-center justify-center text-white shadow-stickerSm group-hover:scale-105 transition-transform">
+          <span class="text-lg">🧋</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-bold text-sm sm:text-base text-coffee tracking-tight">Baby Queen &amp; Baby Boss</span>
+            <span class="text-coral text-xs sm:text-sm">♥</span>
+          </div>
+          <p class="text-[11px] text-coffeeSoft hidden sm:block">奶茶系日系情侶共享紀念冊 · 即時同步</p>
+        </div>
+      </button>
+
+      <!-- 桌面快速分頁列 -->
+      <nav class="hidden lg:flex items-center gap-1.5" aria-label="主要導航">
+        <button data-route="/" onclick="navigateTo('/')" class="nav-pill px-3 py-1.5 rounded-xl text-xs font-medium transition">🏠 首頁</button>
+        <button data-route="/calendar" onclick="navigateTo('/calendar')" class="nav-pill px-3 py-1.5 rounded-xl text-xs font-medium transition">📅 情侶月曆</button>
+        <button data-route="/diary" onclick="navigateTo('/diary')" class="nav-pill px-3 py-1.5 rounded-xl text-xs font-medium transition">📖 戀愛日記</button>
+        <button data-route="/next-stop" onclick="navigateTo('/next-stop')" class="nav-pill px-3 py-1.5 rounded-xl text-xs font-medium transition">🚉 下一站幸福</button>
+        <button data-route="/gacha" onclick="navigateTo('/gacha')" class="nav-pill px-3 py-1.5 rounded-xl text-xs font-medium transition">🎡 扭蛋機</button>
+        <button data-route="/gallery" onclick="navigateTo('/gallery')" class="nav-pill px-3 py-1.5 rounded-xl text-xs font-medium transition">📷 回憶相簿</button>
+        <button data-route="/wishlist" onclick="navigateTo('/wishlist')" class="nav-pill px-3 py-1.5 rounded-xl text-xs font-medium transition">🎯 願望清單</button>
+      </nav>
+
+      <!-- 右側狀態 & Firebase 設定 & AI 助手按鈕 -->
+      <div class="flex items-center gap-1.5 sm:gap-2">
+        <button onclick="openAiAssistant()" class="sticker-btn px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-semibold text-coffee flex items-center gap-1 cursor-pointer">
+          <span>✨</span>
+          <span class="hidden sm:inline">AI 情侶助手</span>
+        </button>
+
+        <button onclick="openFirebaseModal()" id="dbStatusBtn" class="px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-semibold border transition flex items-center gap-1.5 cursor-pointer bg-beige/90 border-milktea text-coffee hover:bg-milkteaLight/70" title="Firebase 即時數據庫設定">
+          <span id="dbStatusDot" class="w-2.5 h-2.5 rounded-full bg-misty animate-pulse"></span>
+          <span id="dbStatusText">同步模式</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 手機/平板橫向滑動分頁列 -->
+    <div class="lg:hidden flex items-center gap-1.5 px-3 pb-2 overflow-x-auto no-scrollbar">
+      <button data-route="/" onclick="navigateTo('/')" class="nav-pill shrink-0 px-3 py-1 rounded-full text-xs font-medium">🏠 首頁</button>
+      <button data-route="/calendar" onclick="navigateTo('/calendar')" class="nav-pill shrink-0 px-3 py-1 rounded-full text-xs font-medium">📅 月曆</button>
+      <button data-route="/diary" onclick="navigateTo('/diary')" class="nav-pill shrink-0 px-3 py-1 rounded-full text-xs font-medium">📖 日記</button>
+      <button data-route="/next-stop" onclick="navigateTo('/next-stop')" class="nav-pill shrink-0 px-3 py-1 rounded-full text-xs font-medium">🚉 下一站</button>
+      <button data-route="/gacha" onclick="navigateTo('/gacha')" class="nav-pill shrink-0 px-3 py-1 rounded-full text-xs font-medium">🎡 扭蛋機</button>
+      <button data-route="/gallery" onclick="navigateTo('/gallery')" class="nav-pill shrink-0 px-3 py-1 rounded-full text-xs font-medium">📷 相簿</button>
+      <button data-route="/wishlist" onclick="navigateTo('/wishlist')" class="nav-pill shrink-0 px-3 py-1 rounded-full text-xs font-medium">🎯 願望</button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       主畫面容器 (動態渲染各頁面)
+       ======================================================================== -->
+  <main id="appRoot" class="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 pt-5 pb-20"></main>
+
+  <!-- ========================================================================
+       可愛 SVG 插畫與貼紙裝飾庫 (隱藏模板，方便 JS 插入)
+       ======================================================================== -->
+  <template id="svgCoupleHero">
+    <svg viewBox="0 0 360 220" class="w-full h-auto drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- 奶油雲朵與背景圓 -->
+      <ellipse cx="180" cy="182" rx="145" ry="22" fill="#EAD7C3" opacity="0.7"/>
+      <path d="M58 68C48 68 40 60 40 50C40 41 47 33 56 32C60 22 70 16 82 16C97 16 109 27 110 42C118 44 124 51 124 59C124 64 120 68 115 68H58Z" fill="#FFFDF9" stroke="#D8B899" stroke-width="2.5"/>
+      <path d="M256 54C248 54 242 48 242 40C242 33 247 27 254 26C257 18 265 13 275 13C287 13 297 22 298 34C304 36 309 41 309 48C309 51 306 54 302 54H256Z" fill="#FFFDF9" stroke="#D8B899" stroke-width="2.5"/>
+
+      <!-- 可愛小狗陪伴 (左下方) -->
+      <g transform="translate(36, 128)">
+        <ellipse cx="26" cy="40" rx="18" ry="12" fill="#D8B899" stroke="#4A3525" stroke-width="2.2"/>
+        <circle cx="38" cy="24" r="14" fill="#EAD7C3" stroke="#4A3525" stroke-width="2.2"/>
+        <ellipse cx="26" cy="23" rx="6" ry="10" transform="rotate(-18 26 23)" fill="#B88456" stroke="#4A3525" stroke-width="2"/>
+        <ellipse cx="49" cy="23" rx="6" ry="10" transform="rotate(18 49 23)" fill="#B88456" stroke="#4A3525" stroke-width="2"/>
+        <circle cx="34" cy="23" r="2" fill="#4A3525"/>
+        <circle cx="44" cy="23" r="2" fill="#4A3525"/>
+        <ellipse cx="39" cy="27" rx="3" ry="2" fill="#4A3525"/>
+        <!-- 搖尾巴 -->
+        <path d="M9 34C2 28 2 20 8 18" stroke="#4A3525" stroke-width="2.4" stroke-linecap="round"/>
+      </g>
+
+      <!-- Baby Boss (男生 - 霧藍衛衣 + 奶茶棕髮) -->
+      <g transform="translate(104, 48)">
+        <!-- 身體 -->
+        <rect x="22" y="68" width="44" height="58" rx="18" fill="#8FAEC4" stroke="#4A3525" stroke-width="2.5"/>
+        <!-- 頭部 -->
+        <circle cx="44" cy="44" r="26" fill="#FFE6D0" stroke="#4A3525" stroke-width="2.5"/>
+        <!-- 頭髮 -->
+        <path d="M18 40C18 22 30 14 45 14C60 14 70 23 70 38C63 31 54 28 44 29C34 30 25 34 18 40Z" fill="#4A3525"/>
+        <!-- 眼睛與微笑 -->
+        <circle cx="35" cy="46" r="2.6" fill="#4A3525"/>
+        <circle cx="53" cy="46" r="2.6" fill="#4A3525"/>
+        <path d="M40 53C42 56 46 56 48 53" stroke="#4A3525" stroke-width="2.2" stroke-linecap="round"/>
+        <!-- 腮紅 -->
+        <ellipse cx="29" cy="51" rx="4.5" ry="2.5" fill="#E58A7B" opacity="0.55"/>
+        <ellipse cx="59" cy="51" rx="4.5" ry="2.5" fill="#E58A7B" opacity="0.55"/>
+        <!-- 牽手手臂 -->
+        <path d="M66 86C82 88 94 92 104 94" stroke="#4A3525" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+
+      <!-- 中間漂浮愛心 -->
+      <g transform="translate(165, 32)">
+        <path d="M15 27C15 27 3 19.5 3 10.5C3 6 6.5 3 10.5 3C13 3 14.5 4.5 15 6C15.5 4.5 17 3 19.5 3C23.5 3 27 6 27 10.5C27 19.5 15 27 15 27Z" fill="#E58A7B" stroke="#4A3525" stroke-width="2"/>
+      </g>
+
+      <!-- Baby Queen (女生 - 奶油粉洋裝 + 蝴蝶結) -->
+      <g transform="translate(202, 52)">
+        <!-- 蝴蝶結髮飾 -->
+        <path d="M42 14L28 6L30 22L42 14Z" fill="#E58A7B" stroke="#4A3525" stroke-width="2"/>
+        <path d="M42 14L56 6L54 22L42 14Z" fill="#E58A7B" stroke="#4A3525" stroke-width="2"/>
+        <circle cx="42" cy="14" r="4" fill="#FFFDF9" stroke="#4A3525" stroke-width="2"/>
+        <!-- 裙擺與身體 -->
+        <path d="M24 68H60L70 122H14L24 68Z" fill="#F4C7B8" stroke="#4A3525" stroke-width="2.5" stroke-linejoin="round"/>
+        <!-- 頭部 -->
+        <circle cx="42" cy="44" r="25" fill="#FFE6D0" stroke="#4A3525" stroke-width="2.5"/>
+        <!-- 長髮 -->
+        <path d="M17 42C17 25 28 17 42 17C56 17 67 25 67 42C70 56 68 72 64 80L58 76C60 66 60 54 57 44C50 37 34 37 27 44C24 54 24 66 26 76L20 80C16 72 14 56 17 42Z" fill="#6E4B35" stroke="#4A3525" stroke-width="2"/>
+        <!-- 眼睛與甜笑 -->
+        <circle cx="34" cy="46" r="2.6" fill="#4A3525"/>
+        <circle cx="50" cy="46" r="2.6" fill="#4A3525"/>
+        <path d="M38 53C40 56.5 44 56.5 46 53" stroke="#E58A7B" stroke-width="2.4" stroke-linecap="round"/>
+        <ellipse cx="28" cy="51" rx="4.5" ry="2.5" fill="#E58A7B" opacity="0.6"/>
+        <ellipse cx="56" cy="51" rx="4.5" ry="2.5" fill="#E58A7B" opacity="0.6"/>
+        <!-- 牽手手臂 -->
+        <path d="M22 86C10 88 2 92 -6 94" stroke="#4A3525" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+
+      <!-- 行李箱裝飾 (右下方) -->
+      <g transform="translate(284, 134)">
+        <rect x="4" y="12" width="34" height="32" rx="7" fill="#D8B899" stroke="#4A3525" stroke-width="2.2"/>
+        <path d="M14 12V6C14 4.3 15.3 3 17 3H25C26.7 3 28 4.3 28 6V12" stroke="#4A3525" stroke-width="2.2"/>
+        <line x1="15" y1="13" x2="15" y2="43" stroke="#4A3525" stroke-width="1.8"/>
+        <line x1="27" y1="13" x2="27" y2="43" stroke="#4A3525" stroke-width="1.8"/>
+      </g>
+    </svg>
+  </template>
+
+  <!-- 珍珠奶茶插畫 SVG -->
+  <template id="svgMilkTea">
+    <svg viewBox="0 0 80 96" class="w-14 h-16 shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 10L48 4" stroke="#4A3525" stroke-width="3" stroke-linecap="round"/>
+      <rect x="18" y="24" width="44" height="62" rx="12" fill="#FFFDF9" stroke="#4A3525" stroke-width="2.5"/>
+      <path d="M21 36H59L55 82H25L21 36Z" fill="#EAD7C3"/>
+      <rect x="15" y="19" width="50" height="8" rx="4" fill="#D8B899" stroke="#4A3525" stroke-width="2.2"/>
+      <circle cx="32" cy="74" r="3.5" fill="#4A3525"/>
+      <circle cx="42" cy="76" r="3.5" fill="#4A3525"/>
+      <circle cx="50" cy="72" r="3.5" fill="#4A3525"/>
+      <circle cx="34" cy="52" r="2.2" fill="#4A3525"/>
+      <circle cx="46" cy="52" r="2.2" fill="#4A3525"/>
+      <path d="M38 56C39.5 58 41.5 58 43 56" stroke="#4A3525" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="30" cy="56" rx="3.5" ry="2" fill="#E58A7B" opacity="0.6"/>
+      <ellipse cx="50" cy="56" rx="3.5" ry="2" fill="#E58A7B" opacity="0.6"/>
+    </svg>
+  </template>
+
+  <!-- 情書信封插畫 SVG -->
+  <template id="svgLoveLetter">
+    <svg viewBox="0 0 96 72" class="w-16 h-12 shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="14" width="76" height="48" rx="10" fill="#FFFDF9" stroke="#4A3525" stroke-width="2.5"/>
+      <path d="M12 18L48 42L84 18" stroke="#D8B899" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M48 44C48 44 39 38.5 39 32.5C39 29.5 41.5 27.5 44 27.5C45.8 27.5 47.2 28.6 48 30C48.8 28.6 50.2 27.5 52 27.5C54.5 27.5 57 29.5 57 32.5C57 38.5 48 44 48 44Z" fill="#E58A7B" stroke="#4A3525" stroke-width="1.8"/>
+    </svg>
+  </template>
+
+  <!-- 拍立得相機插畫 SVG -->
+  <template id="svgPolaroidCamera">
+    <svg viewBox="0 0 92 76" class="w-16 h-14 shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="16" width="72" height="50" rx="12" fill="#F4C7B8" stroke="#4A3525" stroke-width="2.5"/>
+      <rect x="24" y="10" width="22" height="8" rx="3" fill="#EAD7C3" stroke="#4A3525" stroke-width="2"/>
+      <circle cx="48" cy="41" r="14" fill="#FFFDF9" stroke="#4A3525" stroke-width="2.5"/>
+      <circle cx="48" cy="41" r="7" fill="#8FAEC4" stroke="#4A3525" stroke-width="2"/>
+      <circle cx="45" cy="38" r="2.2" fill="#FFFFFF"/>
+      <circle cx="68" cy="27" r="4" fill="#FFE6A3" stroke="#4A3525" stroke-width="1.8"/>
+    </svg>
+  </template>
+
+  <!-- 飛機與旅遊護照插畫 SVG -->
+  <template id="svgPassportPlane">
+    <svg viewBox="0 0 96 72" class="w-16 h-12 shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="16" y="12" width="42" height="50" rx="7" fill="#8FAEC4" stroke="#4A3525" stroke-width="2.4"/>
+      <circle cx="37" cy="37" r="10" fill="#FFFDF9" stroke="#4A3525" stroke-width="2"/>
+      <path d="M54 24L84 16L74 34L66 28L54 24Z" fill="#E58A7B" stroke="#4A3525" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M22 52Q55 62 82 42" stroke="#B88456" stroke-width="2.2" stroke-dasharray="4 4" stroke-linecap="round"/>
+    </svg>
+  </template>
+
+  <!-- 下一站幸福：可愛日系小火車與車票插畫 SVG -->
+  <template id="svgNextStopTrain">
+    <svg viewBox="0 0 280 120" class="w-full max-w-[260px] h-auto mx-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="140" cy="106" rx="115" ry="9" fill="#EAD7C3" opacity="0.8"/>
+      <line x1="22" y1="104" x2="258" y2="104" stroke="#B88456" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 6"/>
+      <!-- 車票裝飾 (左) -->
+      <g transform="translate(18, 22) rotate(-10)">
+        <rect x="0" y="0" width="64" height="36" rx="8" fill="#FFFDF9" stroke="#4A3525" stroke-width="2.2"/>
+        <line x1="44" y1="2" x2="44" y2="34" stroke="#D8B899" stroke-width="2" stroke-dasharray="3 3"/>
+        <text x="10" y="22" fill="#E58A7B" font-size="11" font-weight="bold">♥ NEXT</text>
+      </g>
+      <!-- 可愛奶茶色小火車 (右) -->
+      <g transform="translate(106, 26)">
+        <rect x="14" y="14" width="112" height="58" rx="18" fill="#F4C7B8" stroke="#4A3525" stroke-width="2.5"/>
+        <rect x="26" y="24" width="32" height="22" rx="7" fill="#FFFDF9" stroke="#4A3525" stroke-width="2"/>
+        <rect x="66" y="24" width="32" height="22" rx="7" fill="#FFFDF9" stroke="#4A3525" stroke-width="2"/>
+        <circle cx="42" cy="35" r="2.2" fill="#4A3525"/>
+        <circle cx="82" cy="35" r="2.2" fill="#4A3525"/>
+        <path d="M58 55L62 59L66 55" stroke="#4A3525" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="104" y="2" width="12" height="14" rx="4" fill="#D8B899" stroke="#4A3525" stroke-width="2"/>
+        <circle cx="110" cy="-4" r="4" fill="#FFFDF9" stroke="#D8B899" stroke-width="1.5"/>
+        <circle cx="38" cy="74" r="9" fill="#8FAEC4" stroke="#4A3525" stroke-width="2.3"/>
+        <circle cx="102" cy="74" r="9" fill="#8FAEC4" stroke="#4A3525" stroke-width="2.3"/>
+      </g>
+    </svg>
+  </template>
+
+  <!-- ========================================================================
+       Modal 1: Firebase 設定與即時同步模式面板
+       ======================================================================== -->
+  <div id="firebaseModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-coffee/40 backdrop-blur-sm p-3 sm:p-5 overflow-y-auto">
+    <div class="glass-card rounded-3xl max-w-2xl w-full p-5 sm:p-7 border-2 border-milktea shadow-sticker my-auto">
+      <div class="flex items-start justify-between gap-3 pb-4 border-b border-milktea/50">
+        <div>
+          <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-milkteaLight text-coffee mb-1">🔥 即時共享後台設定</span>
+          <h2 class="text-lg sm:text-xl font-bold text-coffee">Firebase Firestore 連線設定教學</h2>
+        </div>
+        <button onclick="closeFirebaseModal()" class="w-9 h-9 rounded-full bg-beige hover:bg-milkteaLight flex items-center justify-center text-coffee font-bold cursor-pointer">✕</button>
+      </div>
+
+      <div class="mt-4 space-y-4 max-h-[72vh] overflow-y-auto pr-1 text-xs sm:text-sm">
+        <!-- 模式切換 -->
+        <div class="p-3.5 rounded-2xl bg-beige/90 border border-milktea/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <p class="font-bold text-coffee">目前運作模式：<span id="modalCurrentMode" class="text-caramel">即時模擬同步 (BroadcastChannel)</span></p>
+            <p class="text-xs text-coffeeSoft mt-0.5">貼上 Firebase Config 後可一鍵切換為真實雲端 Firestore 資料庫，支援匿名登入與多人即時同步。</p>
+          </div>
+          <button onclick="switchToDemoMode()" class="sticker-btn px-3 py-2 rounded-xl text-xs font-bold text-coffee shrink-0 cursor-pointer">
+            切換至即時模擬模式
+          </button>
+        </div>
+
+        <!-- 步驟指引 -->
+        <div class="p-4 rounded-2xl bg-cream border border-milktea/50 space-y-2">
+          <p class="font-bold text-coffee">📌 貼邊度？一步步設定 Firebase Firestore：</p>
+          <ol class="list-decimal list-inside space-y-1.5 text-coffeeSoft text-xs sm:text-sm">
+            <li>前往 <span class="font-semibold text-coffee">Firebase Console (console.firebase.google.com)</span> 建立專案，並開啟 <span class="font-semibold text-coffee">Firestore Database</span>（選擇測試模式或建立規則）。</li>
+            <li>在 <span class="font-semibold text-coffee">Authentication</span> 啟用 <span class="font-semibold text-coffee">Anonymous (匿名登入)</span>（系統會自動為每位訪客匿名登入，無需手動輸入帳密）。</li>
+            <li>在「專案設定 &gt; 您的應用程式 (Web)」複製 <code class="px-1.5 py-0.5 rounded bg-beige text-coffee font-mono text-xs">firebaseConfig</code> 物件，貼入下方輸入框後按「儲存並連線 Firestore」。</li>
+          </ol>
+        </div>
+
+        <!-- JSON / Object 輸入框 -->
+        <div>
+          <label class="block font-bold text-coffee mb-1.5">貼上你的 Firebase Config（支援整段 JS 物件或 JSON）：</label>
+          <textarea id="firebaseConfigInput" rows="7" placeholder='{
+  "apiKey": "請貼上你的 API Key",
+  "authDomain": "your-project.firebaseapp.com",
+  "projectId": "your-project-id",
+  "storageBucket": "your-project.firebasestorage.app",
+  "messagingSenderId": "1234567890",
+  "appId": "1:1234567890:web:abcdef"
+}' class="w-full p-3 rounded-2xl bg-cream border-2 border-milktea focus:border-caramel focus:outline-none font-mono text-xs text-coffee"></textarea>
+        </div>
+
+        <!-- 建議 Firestore Security Rules -->
+        <div class="p-3.5 rounded-2xl bg-beige/70 border border-milktea/40">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="font-bold text-coffee text-xs">🛡️ 建議 Firestore Rules（貼去 Firebase Console &gt; Firestore &gt; 規則）：</span>
+            <button onclick="copyFirestoreRules()" class="text-xs font-semibold text-caramel hover:underline cursor-pointer">複製規則</button>
+          </div>
+          <pre id="firestoreRulesCode" class="p-2.5 rounded-xl bg-cream text-[11px] font-mono text-coffee overflow-x-auto">rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /couple_diary_shared/{docId} {
+      allow read, write: if true;
+    }
+  }
+}</pre>
+        </div>
+      </div>
+
+      <div class="mt-5 pt-3 border-t border-milktea/50 flex flex-wrap justify-end gap-2">
+        <button onclick="closeFirebaseModal()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-beige text-coffee hover:bg-milkteaLight cursor-pointer">關閉</button>
+        <button onclick="connectFirebaseFromModal()" class="sticker-btn px-5 py-2 rounded-xl text-xs font-bold text-coffee bg-gradient-to-r from-milkteaLight to-milktea cursor-pointer">
+          🚀 儲存並連線 Firestore
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Modal 2: AI Love Assistant (約會建議 & 每日情侶問題)
+       ======================================================================== -->
+  <div id="aiAssistantModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-coffee/40 backdrop-blur-sm p-3 sm:p-5 overflow-y-auto">
+    <div class="glass-card rounded-3xl max-w-xl w-full p-5 sm:p-6 border-2 border-milktea shadow-sticker my-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-milktea/50">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">✨</span>
+          <div>
+            <h2 class="text-lg font-bold text-coffee">AI Love Assistant 情侶靈感助手</h2>
+            <p class="text-xs text-coffeeSoft">專為 Baby Queen &amp; Baby Boss 設計的約會提案與每日互動問答</p>
+          </div>
+        </div>
+        <button onclick="closeAiAssistant()" class="w-9 h-9 rounded-full bg-beige hover:bg-milkteaLight flex items-center justify-center text-coffee font-bold cursor-pointer">✕</button>
+      </div>
+
+      <div class="mt-4 space-y-4 text-sm">
+        <!-- 約會建議生成器 -->
+        <div class="p-4 rounded-2xl bg-beige/85 border border-milktea/60 space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <span class="font-bold text-coffee">💡 今日約會建議</span>
+            <div class="flex items-center gap-1.5">
+              <select id="aiVibeSelect" class="px-2.5 py-1 rounded-xl bg-cream border border-milktea text-xs text-coffee focus:outline-none">
+                <option value="chill">文青散步</option>
+                <option value="foodie">甜品美食</option>
+                <option value="staycation">宅家甜蜜</option>
+                <option value="adventure">週末小旅行</option>
+              </select>
+              <button onclick="generateDateSuggestion()" class="sticker-btn px-3 py-1 rounded-xl text-xs font-bold text-coffee cursor-pointer">重新生成</button>
+            </div>
+          </div>
+          <p id="aiSuggestionText" class="p-3 rounded-xl bg-cream text-coffee font-medium leading-relaxed border border-milktea/40">
+            今天天氣適合去西九文化區散步，再到 K11 Musea 吃晚餐。
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="sendAiTextToWhiteboard('aiSuggestionText')" class="px-3 py-1.5 rounded-xl bg-milkteaLight hover:bg-milktea text-coffee text-xs font-semibold cursor-pointer">📌 貼上共享白板</button>
+            <button onclick="sendAiTextToWishlist('aiSuggestionText')" class="px-3 py-1.5 rounded-xl bg-cream hover:bg-beige border border-milktea text-coffee text-xs font-semibold cursor-pointer">🎯 加入願望清單</button>
+          </div>
+        </div>
+
+        <!-- 每日情侶問題 -->
+        <div class="p-4 rounded-2xl bg-cream border border-milktea/60 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-coffee">💌 每日情侶問題</span>
+            <button onclick="cycleDailyQuestion()" class="sticker-btn px-3 py-1 rounded-xl text-xs font-bold text-coffee cursor-pointer">換一題</button>
+          </div>
+          <p id="dailyQuestionText" class="text-base font-bold text-coral">❤️ 今天最開心的事情是什麼？</p>
+          <textarea id="dailyAnswerInput" rows="2" placeholder="寫下你嘅答案，一齊發佈去共享白板..." class="w-full p-2.5 rounded-xl bg-beige/60 border border-milktea focus:border-caramel focus:outline-none text-xs sm:text-sm text-coffee"></textarea>
+          <button onclick="postQuestionAnswerToWhiteboard()" class="sticker-btn w-full py-2 rounded-xl text-xs font-bold text-coffee cursor-pointer">
+            💕 發佈問答到共享白板
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Modal 3: 情侶月曆 Date Detail Modal (當日紀錄查看 / 新增 / 編輯)
+       ======================================================================== -->
+  <div id="dateDetailModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-coffee/40 backdrop-blur-sm p-3 sm:p-5 overflow-y-auto">
+    <div class="glass-card rounded-3xl max-w-2xl w-full p-5 sm:p-6 border-2 border-milktea shadow-sticker my-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-milktea/50">
+        <div>
+          <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-milkteaLight text-coffee">📅 IG 手帳當日紀錄</span>
+          <h3 id="modalDateTitle" class="text-lg sm:text-xl font-bold text-coffee mt-1">2026/10/12</h3>
+        </div>
+        <button onclick="closeDateDetailModal()" class="w-9 h-9 rounded-full bg-beige hover:bg-milkteaLight flex items-center justify-center text-coffee font-bold cursor-pointer">✕</button>
+      </div>
+
+      <div class="mt-4 space-y-4 max-h-[75vh] overflow-y-auto pr-1">
+        <!-- 該日已有紀錄列表 -->
+        <div id="existingDayRecords" class="space-y-3"></div>
+
+        <!-- 新增當日紀錄表單 -->
+        <form id="dayRecordForm" onsubmit="submitDayRecord(event)" class="p-4 rounded-2xl bg-beige/85 border border-milktea/60 space-y-3">
+          <p class="font-bold text-sm text-coffee">✍️ 新增呢一日嘅甜蜜紀錄</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            <div>
+              <label class="block text-xs font-semibold text-coffeeSoft mb-1">心情</label>
+              <select id="dayMood" class="w-full px-3 py-2 rounded-xl bg-cream border border-milktea text-xs text-coffee">
+                <option value="😊 Happy">😊 Happy</option>
+                <option value="🥰 In Love">🥰 In Love</option>
+                <option value="🤩 Excited">🤩 Excited</option>
+                <option value="😌 Relaxed">😌 Relaxed</option>
+                <option value="🥺 Miss You">🥺 Miss You</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-coffeeSoft mb-1">天氣</label>
+              <select id="dayWeather" class="w-full px-3 py-2 rounded-xl bg-cream border border-milktea text-xs text-coffee">
+                <option value="☀️ 晴朗">☀️ 晴朗</option>
+                <option value="⛅ 多雲">⛅ 多雲</option>
+                <option value="🌊 海風微涼">🌊 海風微涼</option>
+                <option value="🌧 浪漫小雨">🌧 浪漫小雨</option>
+                <option value="🌅 夕陽晚霞">🌅 夕陽晚霞</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-coffeeSoft mb-1">時段</label>
+              <select id="dayPeriod" class="w-full px-3 py-2 rounded-xl bg-cream border border-milktea text-xs text-coffee">
+                <option value="早上">早上</option>
+                <option value="下午">下午</option>
+                <option value="晚上">晚上</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div>
+              <label class="block text-xs font-semibold text-coffeeSoft mb-1">地點</label>
+              <input id="dayLocation" type="text" placeholder="例如：📍Bondi Beach, Sydney" class="w-full px-3 py-2 rounded-xl bg-cream border border-milktea text-xs text-coffee" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-coffeeSoft mb-1">甜度評分</label>
+              <select id="dayRating" class="w-full px-3 py-2 rounded-xl bg-cream border border-milktea text-xs text-coffee">
+                <option value="5">⭐⭐⭐⭐⭐ (5星滿分)</option>
+                <option value="4">⭐⭐⭐⭐ (4星)</option>
+                <option value="3">⭐⭐⭐ (3星)</option>
+                <option value="2">⭐⭐ (2星)</option>
+                <option value="1">⭐ (1星)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-coffeeSoft mb-1">文字日記</label>
+            <textarea id="dayText" rows="3" required placeholder="記錄今日發生嘅趣事、美食或心動時刻..." class="w-full p-3 rounded-xl bg-cream border border-milktea text-xs sm:text-sm text-coffee focus:border-caramel focus:outline-none"></textarea>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <div>
+              <label class="block text-xs font-semibold text-coffeeSoft mb-1">多張照片（揀檔案或貼圖片網址，逗號分隔）</label>
+              <input id="dayPhotoFiles" type="file" accept="image/*" multiple onchange="handleDayFilesUpload(event)" class="w-full text-xs text-coffeeSoft file:mr-2 file:py-1.5 file:px-2.5 file:rounded-lg file:border-0 file:bg-milkteaLight file:text-coffee file:font-semibold" />
+              <input id="dayPhotoUrls" type="text" placeholder="或貼上圖片 URL..." class="mt-1.5 w-full px-3 py-1.5 rounded-xl bg-cream border border-milktea text-xs text-coffee" />
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-coffeeSoft mb-1">短影片（影片網址或短片檔案）</label>
+              <input id="dayVideoFile" type="file" accept="video/*" onchange="handleDayVideoUpload(event)" class="w-full text-xs text-coffeeSoft file:mr-2 file:py-1.5 file:px-2.5 file:rounded-lg file:border-0 file:bg-milkteaLight file:text-coffee file:font-semibold" />
+              <input id="dayVideoUrl" type="text" placeholder="或貼上短影片 URL..." class="mt-1.5 w-full px-3 py-1.5 rounded-xl bg-cream border border-milktea text-xs text-coffee" />
+            </div>
+          </div>
+
+          <div id="dayMediaPreview" class="flex flex-wrap gap-2"></div>
+
+          <button type="submit" class="sticker-btn w-full py-2.5 rounded-xl text-xs sm:text-sm font-bold text-coffee bg-gradient-to-r from-milkteaLight to-milktea cursor-pointer">
+            💾 儲存並即時同步至共享月曆
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Modal 4: 回憶相簿全屏查看 Lightbox
+       ======================================================================== -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-coffee/80 backdrop-blur-md p-3 sm:p-6">
+    <div class="relative max-w-4xl w-full glass-card rounded-3xl p-4 sm:p-6 border-2 border-milktea">
+      <button onclick="closeLightbox()" class="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-cream/90 hover:bg-milkteaLight text-coffee font-bold flex items-center justify-center shadow cursor-pointer">✕</button>
+      <div id="lightboxContent" class="space-y-3"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       核心 JavaScript：狀態管理、Firebase Firestore 即時同步、150+款扭蛋、7大頁面
+       ======================================================================== -->
+  <script type="module">
+    import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import {
+      getFirestore,
+      doc,
+      setDoc,
+      onSnapshot
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    // ------------------------------------------------------------------------
+    // 1. 戀愛起始日設定（2025.05.18）與初始種子資料
+    // ------------------------------------------------------------------------
+    const DATING_START_ISO = "2025-05-18T00:00:00";
+    const SHARED_DOC_PATH = ["couple_diary_shared", "baby_queen_baby_boss_main"];
+    const DEFAULT_FIREBASE_CONFIG = null;
+
+    function uid() {
+      return Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+    }
+
+    function cloneSeedData() {
+      return JSON.parse(JSON.stringify({
+        whiteboard: [
+          { id: "wb1", author: "Baby Queen 👑", text: "歡迎來到我哋嘅秘密基地！2025.05.18 開始嘅每一日都要好好記錄落嚟 💕", time: "2025/05/18 20:00", color: "bg-cream" },
+          { id: "wb2", author: "Baby Boss 🐻", text: "下次一齊去海邊野餐同影拍貼機！Love you 3000 🧋✨", time: "2025/06/01 14:30", color: "bg-beige" }
+        ],
+        calendarRecords: [
+          {
+            id: "cal1",
+            date: "2026-10-12",
+            mood: "😊 Happy",
+            weather: "☀️ 晴朗",
+            period: "下午",
+            location: "📍Bondi Beach, Sydney",
+            rating: 5,
+            text: "今日一齊去左沙灘picnic, kmart買左個lego紅色小跑車",
+            photos: ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"],
+            video: ""
+          },
+          {
+            id: "cal2",
+            date: "2025-05-18",
+            mood: "🥰 In Love",
+            weather: "🌅 夕陽晚霞",
+            period: "晚上",
+            location: "📍Victoria Harbour, Hong Kong",
+            rating: 5,
+            text: "我哋正式喺埋一齊嘅第一日！海風吹住好浪漫 ❤️",
+            photos: ["https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80"],
+            video: ""
+          }
+        ],
+        diaries: [
+          {
+            id: "d1",
+            title: "Bondi Beach 沙灘野餐與紅色 Lego 小跑車",
+            date: "2026-10-12",
+            category: "旅行遊記",
+            tags: ["Sydney", "沙灘野餐", "Lego"],
+            favorite: true,
+            image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+            content: "陽光超好嘅一日！一齊喺 Bondi Beach 鋪好野餐墊食草莓同三文治，行 Kmart 仲一齊買咗架超可愛嘅 Lego 紅色小跑車，返酒店一齊砌到半夜。"
+          },
+          {
+            id: "d2",
+            title: "上海外灘夜景與小籠包探店",
+            date: "2025-11-20",
+            category: "美食打卡",
+            tags: ["上海", "夜景", "美食"],
+            favorite: true,
+            image: "https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=800&q=80",
+            content: "第一次一齊去上海旅行，外灘嘅燈光好靚，食咗超多蟹粉小籠包同奶茶！"
+          }
+        ],
+        gallery: [
+          {
+            id: "g1",
+            title: "Bondi Beach 蔚藍海岸",
+            type: "photo",
+            url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+            date: "2026-10-12",
+            location: "Sydney",
+            favorite: true
+          },
+          {
+            id: "g2",
+            title: "日系奶茶咖啡店約會",
+            type: "photo",
+            url: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
+            date: "2026-02-14",
+            location: "Hong Kong",
+            favorite: false
+          },
+          {
+            id: "g3",
+            title: "上海外灘浪漫散步",
+            type: "photo",
+            url: "https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=800&q=80",
+            date: "2025-11-20",
+            location: "Shanghai",
+            favorite: true
+          }
+        ],
+        mapPins: [
+          { id: "m1", name: "深圳", status: "visited", x: 78.5, y: 44.5, date: "2025-07-15", rating: 5, memory: "週末北上食椰子雞同按摩，超開心嘅兩日一夜！", photo: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=600&q=80" },
+          { id: "m2", name: "上海", status: "visited", x: 80.2, y: 39.2, date: "2025-11-20", rating: 5, memory: "外灘睇夜景、迪士尼影相，回憶滿滿！", photo: "https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=600&q=80" },
+          { id: "m3", name: "東京", status: "planned", x: 85.5, y: 36.5, date: "2026-12-24", rating: 5, memory: "計劃聖誕節一齊去東京迪士尼同食拉麵！", photo: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=600&q=80" },
+          { id: "m4", name: "Sydney", status: "visited", x: 88.5, y: 74.0, date: "2026-10-12", rating: 5, memory: "Bondi Beach 沙灘野餐與紅色 Lego 小跑車！", photo: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" },
+          { id: "m5", name: "巴黎", status: "wishlist", x: 48.2, y: 29.5, date: "未來願望", rating: 5, memory: "想喺艾菲爾鐵塔下面一齊影情侶合照！", photo: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80" }
+        ],
+        nextStops: [
+          {
+            id: "ns1",
+            place: "京都嵐山小火車與清水寺",
+            region: "日本 · 京都",
+            season: "🍁 秋楓紅葉季",
+            targetDate: "2027年11月",
+            vibe: "日系治癒",
+            arrived: false,
+            favorite: true,
+            hearts: 5,
+            note: "想著住情侶和服一齊坐嵐山小火車，再食抹茶蕨餅同暖笠笠湯豆腐！",
+            photo: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            id: "ns2",
+            place: "冰島藍湖溫泉與極光小屋",
+            region: "北歐 · 冰島",
+            season: "🌌 冬季星夜",
+            targetDate: "2028年1月",
+            vibe: "夢幻浪漫",
+            arrived: false,
+            favorite: true,
+            hearts: 8,
+            note: "希望有一晚可以喺玻璃屋裏面一邊等極光，一邊握住對方嘅手許願。",
+            photo: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=800&q=80"
+          },
+          {
+            id: "ns3",
+            place: "濟州島海邊咖啡廳自駕遊",
+            region: "韓國 · 濟州",
+            season: "🌸 春日暖陽",
+            targetDate: "2027年4月",
+            vibe: "海風慢活",
+            arrived: false,
+            favorite: false,
+            hearts: 3,
+            note: "沿住海岸線慢慢揸車，每見到一間可愛咖啡店就停低飲杯柑橘拿鐵！",
+            photo: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"
+          }
+        ],
+        wishlist: [
+          { id: "w1", title: "上海", done: true, favorite: true, note: "2025.11 已完成打卡！" },
+          { id: "w2", title: "東京迪士尼", done: false, favorite: true, note: "要戴住米奇頭箍影好多相" },
+          { id: "w3", title: "北海道看雪", done: false, favorite: true, note: "一齊浸溫泉同堆雪人" },
+          { id: "w4", title: "韓國賞櫻", done: false, favorite: false, note: "著情侶裝喺櫻花樹下散步" },
+          { id: "w5", title: "歐洲旅行", done: false, favorite: true, note: "瑞士雪山同巴黎鐵塔" },
+          { id: "w6", title: "一起露營", done: false, favorite: false, note: "夜晚睇星星煮泡麵" }
+        ],
+        customGachaItems: []
+      }));
+    }
+
+    const BASE_GACHA_ITEMS = [
+      "🍜 一起吃拉麵",
+      "🍰 下午茶約會",
+      "🍣 壽司約會",
+      "☕ 咖啡店打卡",
+      "🏖 海邊散步",
+      "🌅 看日落",
+      "🚴 單車約會",
+      "🏕 露營",
+      "📍 昂坪360",
+      "📍 大阪",
+      "📍 東京",
+      "📍 香港迪士尼",
+      "📍 澳門",
+      "🎬 看電影",
+      "🎮 打機",
+      "🎨 畫畫",
+      "📚 一起看書",
+      "💌 手寫情書",
+      "🎁 小禮物交換",
+      "📸 情侶拍貼",
+      "一起吃大排擋",
+      "🎧 分享各自最近最鍾意嘅歌",
+
+      // --- 室內約會 (Indoor) 38 款 ---
+      "🧸 夾公仔大賽",
+      "🍲 暖笠笠打邊爐",
+      "陶藝拉坯體驗 🏺",
+      "香薰蠟燭 DIY 🕯️",
+      "去 Ikea 逛家具 🛋️",
+      "超市大採購零食 🛒",
+      "保齡球對決 🎳",
+      "溜冰場牽手滑冰 ⛸️",
+      "卡拉OK唱情歌 🎤",
+      "桌遊咖啡店對戰 🎲",
+      "密室逃脫大冒險 🔐",
+      "博物館文青之旅 🖼️",
+      "書店互相挑一本書 📖",
+      "一起拼 1000 片拼圖 🧩",
+      "Lego 積木雙人合作 🧱",
+      "在家看宮崎駿馬拉松 🎞️",
+      "敷面膜互相按摩 💆",
+      "早起去吃港式飲茶 🥟",
+      "一起煮一頓晚餐 🍳",
+      "做手工銀戒指 💍",
+      "品嚐 Omakase 料理 🍱",
+      "韓式燒肉大餐 🥩",
+      "泰式按摩放鬆日 🌿",
+      "溫泉旅館 Staycation ♨️",
+      "室內攀石挑戰 🧗",
+      "VR 虛擬實境遊戲 🥽",
+      "貓咪咖啡店擼貓 🐱",
+      "柴犬咖啡店被治癒 🐶",
+      "黑膠唱片店聽歌 🎶",
+      "現場爵士樂酒吧 🎷",
+      "古典音樂會之夜 🎻",
+      "看一場舞台劇或脫口秀 🎭",
+      "天文館看星空投影 🌌",
+      "科學館重溫童年 🔬",
+      "一起學做手沖咖啡 ☕",
+      "抹茶控甜品巡禮 🍵",
+      "珍珠奶茶盲測大賽 🧋",
+      "烘培曲奇或巴斯克蛋糕 🧁",
+
+      // --- 室外約會 (Outdoor) 38 款 ---
+      "🍦 晚飯後食雪糕",
+      "🌃 山頂看夜景",
+      "🎡 摩天輪約會",
+      "天台野餐派對 🧺",
+      "坐天星小輪吹海風 ⛴️",
+      "叮叮車遊港島 🚃",
+      "西九文化區放風箏 🪁",
+      "赤柱市集逛街看海 🌊",
+      "長洲一日遊食大魚蛋 🍡",
+      "南丫島行山食豆腐花 🥾",
+      "愉景灣沙灘漫步 🌴",
+      "尖沙咀海旁聽 Busking 🎸",
+      "中環摩天輪下合照 📷",
+      "海洋公園玩過山車 🎢",
+      "水上樂園消暑 💦",
+      "露營車星空之夜 🚐",
+      "去果園摘士多啤梨 🍓",
+      "向日葵花田打卡 🌻",
+      "濕地公園觀鳥散步 🦩",
+      "單車徑踩去大尾督 🚲",
+      "一起做雙人瑜伽 🧘",
+      "夜跑運動流汗日 🏃",
+      "羽毛球友誼賽 🏸",
+      "乒乓球大比拼 🏓",
+      "射箭體驗變神射手 🏹",
+      "高卡車速度與激情 🏎️",
+      "街頭小食掃街之旅 🧇",
+      "淺水灣日落晚餐 🌇",
+      "石澳彩色小屋拍照 🌈",
+      "龍脊行山看無敵海景 ⛰️",
+      "城門水塘看白千層樹 🌲",
+      "大棠看紅葉浪漫季 🍁",
+      "迪欣湖踩水上單車 🦢",
+      "馬灣挪亞方舟一日遊 🚢",
+      "啟德郵輪碼頭大草地 🌿",
+      "觀塘海濱音樂噴泉 ⛲",
+      "荃灣西海濱看青馬大橋 🌉",
+      "屯門黃金海岸散步 🏖️",
+
+      // --- 情侶活動 (Activities) 37 款 ---
+      "水族館看水母 🪼",
+      "動物園看小熊貓 🐼",
+      "穿對方挑的情侶裝 👕",
+      "深夜大排檔宵夜 🍢",
+      "一起去剪頭髮換造型 💇",
+      "幫對方塗指甲油 💅",
+      "拍一輯復古菲林相 🎞️",
+      "錄一段給未來的影片 📹",
+      "寫時間膠囊信件 ⏳",
+      "去花墟買一束鮮花 💐",
+      "調一杯專屬特調飲品 🍹",
+      "去領養中心做義工 🐾",
+      "逛復古跳蚤市場 🕰️",
+      "去深水埗尋寶買布藝 🧵",
+      "元朗農莊餵小羊 🐑",
+      "流浮山食海鮮大餐 🦀",
+      "來一場雙人拍立得挑戰 📷",
+      "一起製作專屬情侶歌單 🎵",
+      "互相幫對方搭配週末穿搭 👗",
+      "一起挑戰雙人雙打電玩 🕹️",
+      "寫下今年最想實現的三件事 📝",
+      "一起去市場買菜煮火鍋 🥬",
+      "拍一段慢動作牽手影片 🎥",
+      "玩一場真心話大冒險卡片 🃏",
+      "一起學一段可愛手勢舞 💃",
+      "做一對專屬手機殼 DIY 📱",
+      "一起整理相簿挑最甜合照 🖼️",
+      "去夾娃娃機店比拼手氣 🧸",
+      "一起做雙人伸展放鬆運動 🤸",
+      "寫一張明信片寄給未來的自己 ✉️",
+      "一起試喝三款不同風味奶茶 🥤",
+      "拍一組復古大頭貼相片 🎀",
+      "一起去書店選生日禮物 🎁",
+      "一起在雨聲中聽白噪音放空 🌧️",
+      "做一份給對方的專屬早餐 🥞",
+      "一起去花店挑一盆小植物 🌱",
+      "來一場深夜甜品外賣分享會 🍮",
+
+      // --- 浪漫去處 (Places) 38 款 ---
+      "K11 Musea 藝術巡禮 🏛️",
+      "灣仔藍屋文青散步 🏠",
+      "大館古蹟打卡拍照 📸",
+      "PMQ 逛設計師小店 🛍️",
+      "深圳海岸城逛街食飯 🏙️",
+      "深圳歡樂港灣摩天輪 🎡",
+      "廣州長隆野生動物世界 🦒",
+      "珠海長隆海洋王國 🐋",
+      "澳門官也街食葡撻 🥧",
+      "澳門路環彩色小漁村 🏘️",
+      "台北夜市美食馬拉松 🏮",
+      "九份山城看燈籠夜景 🍵",
+      "台南文青咖啡館之旅 🛵",
+      "墾丁陽光與海灘 🏄",
+      "首爾弘大逛街拍貼紙相 🇰🇷",
+      "釜山海雲台坐膠囊列車 🚂",
+      "京都穿和服逛清水寺 👘",
+      "奈良餵小鹿散步 🦌",
+      "大阪環球影城任天堂園區 🍄",
+      "東京澀谷 Sky 看夜景 🗼",
+      "富士山河口湖看逆富士 🗻",
+      "沖繩潛水看珊瑚礁 🐠",
+      "曼谷水上市場與夜市 🇹🇭",
+      "清邁放天燈祈福 ✨",
+      "新加坡濱海灣花園燈光秀 🌳",
+      "倫敦泰晤士河畔散步 🇬🇧",
+      "巴黎塞納河遊船晚餐 🇫🇷",
+      "冰島追極光夢幻之旅 🌌",
+      "維港海濱長廊晚風散步 🌃",
+      "太平山頂盧吉道環迴徑 🏔️",
+      "西貢橋咀島連島沙洲 🏝️",
+      "坪洲小島慢活半日遊 🚲",
+      "深水埗大南街咖啡小店群 ☕",
+      "銅鑼灣利園文青漫步 🛍️",
+      "中環半山扶手電梯打卡 🏙️",
+      "香港故宮文化博物館看展 🏺",
+      "油麻地果欄與廟街夜遊 🏮",
+      "沙田城門河畔單車徑 🚴"
+    ];
+
+    const INDOOR_SET = new Set([
+      "🍜 一起吃拉麵", "🍰 下午茶約會", "🍣 壽司約會", "☕ 咖啡店打卡", "🎬 看電影",
+      "🎮 打機", "🎨 畫畫", "📚 一起看書", "💌 手寫情書", "🎁 小禮物交換",
+      "📸 情侶拍貼", "一起吃大排擋", "🎧 分享各自最近最鍾意嘅歌",
+      "🧸 夾公仔大賽", "🍲 暖笠笠打邊爐", "陶藝拉坯體驗 🏺", "香薰蠟燭 DIY 🕯️",
+      "去 Ikea 逛家具 🛋️", "超市大採購零食 🛒", "保齡球對決 🎳", "溜冰場牽手滑冰 ⛸️",
+      "卡拉OK唱情歌 🎤", "桌遊咖啡店對戰 🎲", "密室逃脫大冒險 🔐", "博物館文青之旅 🖼️",
+      "書店互相挑一本書 📖", "一起拼 1000 片拼圖 🧩", "Lego 積木雙人合作 🧱",
+      "在家看宮崎駿馬拉松 🎞️", "敷面膜互相按摩 💆", "早起去吃港式飲茶 🥟",
+      "一起煮一頓晚餐 🍳", "做手工銀戒指 💍", "品嚐 Omakase 料理 🍱", "韓式燒肉大餐 🥩",
+      "泰式按摩放鬆日 🌿", "溫泉旅館 Staycation ♨️", "室內攀石挑戰 🧗", "VR 虛擬實境遊戲 🥽",
+      "貓咪咖啡店擼貓 🐱", "柴犬咖啡店被治癒 🐶", "黑膠唱片店聽歌 🎶", "現場爵士樂酒吧 🎷",
+      "古典音樂會之夜 🎻", "看一場舞台劇或脫口秀 🎭", "天文館看星空投影 🌌", "科學館重溫童年 🔬",
+      "一起學做手沖咖啡 ☕", "抹茶控甜品巡禮 🍵", "珍珠奶茶盲測大賽 🧋", "烘培曲奇或巴斯克蛋糕 🧁"
+    ]);
+
+    const OUTDOOR_SET = new Set([
+      "🏖 海邊散步", "🌅 看日落", "🚴 單車約會", "🏕 露營",
+      "🍦 晚飯後食雪糕", "🌃 山頂看夜景", "🎡 摩天輪約會", "天台野餐派對 🧺",
+      "坐天星小輪吹海風 ⛴️", "叮叮車遊港島 🚃", "西九文化區放風箏 🪁",
+      "赤柱市集逛街看海 🌊", "長洲一日遊食大魚蛋 🍡", "南丫島行山食豆腐花 🥾",
+      "愉景灣沙灘漫步 🌴", "尖沙咀海旁聽 Busking 🎸", "中環摩天輪下合照 📷",
+      "海洋公園玩過山車 🎢", "水上樂園消暑 💦", "露營車星空之夜 🚐",
+      "去果園摘士多啤梨 🍓", "向日葵花田打卡 🌻", "濕地公園觀鳥散步 🦩",
+      "單車徑踩去大尾督 🚲", "一起做雙人瑜伽 🧘", "夜跑運動流汗日 🏃",
+      "羽毛球友誼賽 🏸", "乒乓球大比拼 🏓", "射箭體驗變神射手 🏹",
+      "高卡車速度與激情 🏎️", "街頭小食掃街之旅 🧇", "淺水灣日落晚餐 🌇",
+      "石澳彩色小屋拍照 🌈", "龍脊行山看無敵海景 ⛰️", "城門水塘看白千層樹 🌲",
+      "大棠看紅葉浪漫季 🍁", "迪欣湖踩水上單車 🦢", "馬灣挪亞方舟一日遊 🚢",
+      "啟德郵輪碼頭大草地 🌿", "觀塘海濱音樂噴泉 ⛲", "荃灣西海濱看青馬大橋 🌉",
+      "屯門黃金海岸散步 🏖️"
+    ]);
+
+    const PLACE_SET = new Set([
+      "📍 昂坪360", "📍 大阪", "📍 東京", "📍 香港迪士尼", "📍 澳門",
+      "K11 Musea 藝術巡禮 🏛️", "灣仔藍屋文青散步 🏠", "大館古蹟打卡拍照 📸",
+      "PMQ 逛設計師小店 🛍️", "深圳海岸城逛街食飯 🏙️", "深圳歡樂港灣摩天輪 🎡",
+      "廣州長隆野生動物世界 🦒", "珠海長隆海洋王國 🐋", "澳門官也街食葡撻 🥧",
+      "澳門路環彩色小漁村 🏘️", "台北夜市美食馬拉松 🏮", "九份山城看燈籠夜景 🍵",
+      "台南文青咖啡館之旅 🛵", "墾丁陽光與海灘 🏄", "首爾弘大逛街拍貼紙相 🇰🇷",
+      "釜山海雲台坐膠囊列車 🚂", "京都穿和服逛清水寺 👘", "奈良餵小鹿散步 🦌",
+      "大阪環球影城任天堂園區 🍄", "東京澀谷 Sky 看夜景 🗼", "富士山河口湖看逆富士 🗻",
+      "沖繩潛水看珊瑚礁 🐠", "曼谷水上市場與夜市 🇹🇭", "清邁放天燈祈福 ✨",
+      "新加坡濱海灣花園燈光秀 🌳", "倫敦泰晤士河畔散步 🇬🇧", "巴黎塞納河遊船晚餐 🇫🇷",
+      "冰島追極光夢幻之旅 🌌", "維港海濱長廊晚風散步 🌃", "太平山頂盧吉道環迴徑 🏔️",
+      "西貢橋咀島連島沙洲 🏝️", "坪洲小島慢活半日遊 🚲", "深水埗大南街咖啡小店群 ☕",
+      "銅鑼灣利園文青漫步 🛍️", "中環半山扶手電梯打卡 🏙️", "香港故宮文化博物館看展 🏺",
+      "油麻地果欄與廟街夜遊 🏮", "沙田城門河畔單車徑 🚴"
+    ]);
+
+    function classifyGachaItem(item) {
+      if (INDOOR_SET.has(item)) return "室內";
+      if (OUTDOOR_SET.has(item)) return "室外";
+      if (PLACE_SET.has(item)) return "去處";
+      return "活動";
+    }
+
+    function getGachaPoolByCategory(category) {
+      const customItems = appState.data.customGachaItems || [];
+      if (category === "自訂") return customItems;
+      const basePool = category === "全部"
+        ? BASE_GACHA_ITEMS
+        : BASE_GACHA_ITEMS.filter((item) => classifyGachaItem(item) === category);
+      return category === "全部" ? [...basePool, ...customItems] : basePool;
+    }
+
+    async function persistSharedData() {
+      if (appState.syncMode === "firestore" && appState.firestoreDb) {
+        try {
+          const docRef = doc(appState.firestoreDb, SHARED_DOC_PATH[0], SHARED_DOC_PATH[1]);
+          await setDoc(docRef, {
+            ...appState.data,
+            lastUpdatedAt: Date.now()
+          });
+        } catch (err) {
+          console.error("寫入 Firestore 失敗：", err);
+          showToast("⚠️ 同步至雲端失敗，請檢查網路或 Firestore Rules");
+        }
+      } else if (bc) {
+        bc.postMessage({ type: "SYNC_STATE", payload: appState.data });
+      }
+      renderCurrentRoute();
+    }
+
+    function updateDbBadge() {
+      const dot = document.getElementById("dbStatusDot");
+      const text = document.getElementById("dbStatusText");
+      if (!dot || !text) return;
+      if (appState.syncMode === "firestore") {
+        dot.className = "w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse";
+        text.textContent = "Firebase 已連線";
+      } else {
+        dot.className = "w-2.5 h-2.5 rounded-full bg-misty animate-pulse";
+        text.textContent = "同步模式";
+      }
+    }
+
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return "";
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    window.showToast = function (message) {
+      const container = document.getElementById("toastContainer");
+      if (!container) return;
+      const toast = document.createElement("div");
+      toast.className = "pointer-events-auto glass-card px-4 py-3 rounded-2xl border-2 border-milktea shadow-stickerSm text-xs sm:text-sm font-semibold text-coffee flex items-center justify-between gap-2 pop-reveal";
+      toast.innerHTML = `<span>${escapeHtml(message)}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(8px)";
+        toast.style.transition = "all 0.25s ease";
+        setTimeout(() => toast.remove(), 260);
+      }, 3000);
+    };
+
+    const appState = {
+      route: "/",
+      syncMode: "broadcast",
+      firestoreDb: null,
+      firestoreUnsub: null,
+      calendarYear: 2026,
+      calendarMonth: 10,
+      selectedDateStr: "",
+      pendingDayPhotos: [],
+      pendingDayVideo: "",
+      pendingDiaryImage: "",
+      pendingNextStopPhoto: "",
+      pendingGalleryUrl: "",
+      diarySearch: "",
+      diaryCategory: "全部",
+      diaryOnlyFav: false,
+      galleryOnlyFav: false,
+      nextStopFilter: "全部",
+      nextStopOnlyFav: false,
+      gachaSpinning: false,
+      gachaResult: null,
+      gachaCategory: "全部",
+      gachaCapsuleColor: "coral",
+      gachaCrackOpen: false,
+      gachaBurstKey: 0,
+      questionIndex: 0,
+      data: cloneSeedData()
+    };
+
+    const bc = typeof BroadcastChannel !== "undefined" ? new BroadcastChannel("baby_queen_boss_sync") : null;
+    if (bc) {
+      bc.onmessage = (event) => {
+        if (event.data && event.data.type === "SYNC_STATE" && appState.syncMode === "broadcast") {
+          appState.data = event.data.payload;
+          renderCurrentRoute();
+        }
+      };
+    }
+
+    function createFloatingBubbles() {
+      const container = document.getElementById("bubblesContainer");
+      if (!container) return;
+      container.innerHTML = "";
+      const sizes = [18, 26, 34, 14, 22, 30, 16, 28];
+      sizes.forEach((size, idx) => {
+        const bubble = document.createElement("div");
+        bubble.className = "floating-bubble";
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${(idx * 12 + 6) % 95}%`;
+        bubble.style.animationDuration = `${16 + (idx % 5) * 4}s`;
+        bubble.style.animationDelay = `${idx * 1.6}s`;
+        container.appendChild(bubble);
+      });
+    }
+
+    function updateLoveTimer() {
+      const start = new Date(DATING_START_ISO).getTime();
+      const now = Date.now();
+      const diff = Math.max(0, now - start);
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+
+      const daysEl = document.getElementById("loveDaysCount");
+      const clockEl = document.getElementById("loveLiveClock");
+      if (daysEl) daysEl.textContent = days;
+      if (clockEl) {
+        clockEl.textContent = `${String(hours).padStart(2, "0")} 小時 ${String(mins).padStart(2, "0")} 分 ${String(secs).padStart(2, "0")} 秒`;
+      }
+    }
+
+    // ------------------------------------------------------------------------
+    // 3. 路由與頁面渲染
+    // ------------------------------------------------------------------------
+    window.navigateTo = function (route) {
+      appState.route = route;
+      document.querySelectorAll(".nav-pill").forEach((btn) => {
+        const isActive = btn.getAttribute("data-route") === route;
+        btn.className = isActive
+          ? "nav-pill shrink-0 px-3 py-1.5 rounded-xl text-xs font-bold bg-caramel text-white shadow-sm transition cursor-pointer"
+          : "nav-pill shrink-0 px-3 py-1.5 rounded-xl text-xs font-medium text-coffee hover:bg-milkteaLight/70 transition cursor-pointer";
+      });
+      renderCurrentRoute();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    function renderCurrentRoute() {
+      const root = document.getElementById("appRoot");
+      if (!root) return;
+      switch (appState.route) {
+        case "/calendar":
+          root.innerHTML = renderCalendarPage();
+          break;
+        case "/diary":
+          root.innerHTML = renderDiaryPage();
+          break;
+        case "/next-stop":
+          root.innerHTML = renderNextStopPage();
+          injectNextStopSvg();
+          break;
+        case "/gacha":
+          root.innerHTML = renderGachaPage();
+          break;
+        case "/gallery":
+          root.innerHTML = renderGalleryPage();
+          break;
+        case "/wishlist":
+          root.innerHTML = renderWishlistPage();
+          break;
+        default:
+          root.innerHTML = renderHomePage();
+          injectHeroSvg();
+          updateLoveTimer();
+          break;
+      }
+    }
+
+    function injectNextStopSvg() {
+      const target = document.getElementById("nextStopTrainSlot");
+      const tpl = document.getElementById("svgNextStopTrain");
+      if (target && tpl) {
+        target.innerHTML = "";
+        target.appendChild(tpl.content.cloneNode(true));
+      }
+    }
+
+    function injectHeroSvg() {
+      const target = document.getElementById("heroIllustrationSlot");
+      const tpl = document.getElementById("svgCoupleHero");
+      if (target && tpl) {
+        target.innerHTML = "";
+        target.appendChild(tpl.content.cloneNode(true));
+      }
+      const slots = [
+        { id: "kawaiiMilkTeaSlot", tplId: "svgMilkTea" },
+        { id: "kawaiiLetterSlot", tplId: "svgLoveLetter" },
+        { id: "kawaiiCameraSlot", tplId: "svgPolaroidCamera" }
+      ];
+      slots.forEach(({ id, tplId }) => {
+        const el = document.getElementById(id);
+        const t = document.getElementById(tplId);
+        if (el && t) {
+          el.innerHTML = "";
+          el.appendChild(t.content.cloneNode(true));
+        }
+      });
+    }
+
+    function readFileAsDataUrl(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // ------------------------------------------------------------------------
+    // 首頁 Home
+    // ------------------------------------------------------------------------
+    function renderHomePage() {
+      const wbItems = appState.data.whiteboard || [];
+      return `
+        <div class="space-y-6">
+          <!-- Hero Section -->
+          <section class="glass-card rounded-3xl p-5 sm:p-8 border-2 border-milktea/70 relative overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+              <div class="lg:col-span-7 space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-milkteaLight/80 border border-caramel/30 text-xs font-bold text-coffee">
+                  <span>🎀 專屬雙人紀念空間</span>
+                  <span>·</span>
+                  <span>Start dating since 2025.05.18</span>
+                </div>
+
+                <div class="flex items-center gap-3 sm:gap-4">
+                  <div class="flex -space-x-3">
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-coral/80 to-milktea flex items-center justify-center text-2xl sm:text-3xl border-2 border-cream shadow kawaii-tilt">👸🏻</div>
+                    <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-misty to-milktea flex items-center justify-center text-2xl sm:text-3xl border-2 border-cream shadow kawaii-tilt">🤴🏻</div>
+                  </div>
+                  <div>
+                    <h1 class="text-2xl sm:text-4xl font-extrabold text-coffee tracking-tight">❤️ Baby Queen &amp; Baby Boss</h1>
+                    <p class="text-xs sm:text-sm text-coffeeSoft mt-1">一起收集生活裡每一杯全糖奶茶的甜度 🧋✨</p>
+                  </div>
+                </div>
+
+                <!-- 可愛插畫貼紙列 -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+                  <div onclick="showToast('🧋 今日奶茶甜度：全糖去冰加珍珠！')" class="p-2.5 rounded-2xl bg-cream/90 border border-milktea flex items-center gap-2 kawaii-tilt cursor-pointer">
+                    <div id="kawaiiMilkTeaSlot"></div>
+                    <div class="text-[11px] font-bold text-coffee leading-tight">全糖奶茶<br/><span class="text-caramel font-normal">每日甜份</span></div>
+                  </div>
+                  <div onclick="openAiAssistant()" class="p-2.5 rounded-2xl bg-cream/90 border border-milktea flex items-center gap-2 kawaii-tilt cursor-pointer">
+                    <div id="kawaiiLetterSlot"></div>
+                    <div class="text-[11px] font-bold text-coffee leading-tight">情書問答<br/><span class="text-coral font-normal">點我寫信</span></div>
+                  </div>
+                  <div onclick="navigateTo('/gallery')" class="p-2.5 rounded-2xl bg-cream/90 border border-milktea flex items-center gap-2 kawaii-tilt cursor-pointer">
+                    <div id="kawaiiCameraSlot"></div>
+                    <div class="text-[11px] font-bold text-coffee leading-tight">拍立得牆<br/><span class="text-misty font-normal">隨手上傳</span></div>
+                  </div>
+                  <div onclick="navigateTo('/next-stop')" class="p-2.5 rounded-2xl bg-cream/90 border border-milktea flex items-center gap-2 kawaii-tilt cursor-pointer">
+                    <div id="kawaiiPlaneSlot"></div>
+                    <div class="text-[11px] font-bold text-coffee leading-tight">下一站幸福<br/><span class="text-caramel font-normal">想去地方</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="lg:col-span-5">
+                <div id="heroIllustrationSlot" class="max-w-sm mx-auto"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 快速入口：貼紙風按鈕 -->
+          <section class="space-y-3">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+              <button onclick="navigateTo('/calendar')" class="sticker-btn p-4 rounded-2xl flex flex-col items-center gap-1.5 text-center cursor-pointer">
+                <span class="text-2xl">📅</span>
+                <span class="text-xs sm:text-sm font-bold text-coffee">情侶月曆</span>
+              </button>
+              <button onclick="navigateTo('/diary')" class="sticker-btn p-4 rounded-2xl flex flex-col items-center gap-1.5 text-center cursor-pointer">
+                <span class="text-2xl">📖</span>
+                <span class="text-xs sm:text-sm font-bold text-coffee">戀愛日記</span>
+              </button>
+              <button onclick="navigateTo('/next-stop')" class="sticker-btn p-4 rounded-2xl flex flex-col items-center gap-1.5 text-center cursor-pointer">
+                <span class="text-2xl">🚉</span>
+                <span class="text-xs sm:text-sm font-bold text-coffee">下一站幸福</span>
+              </button>
+              <button onclick="navigateTo('/gacha')" class="sticker-btn p-4 rounded-2xl flex flex-col items-center gap-1.5 text-center cursor-pointer">
+                <span class="text-2xl">🎡</span>
+                <span class="text-xs sm:text-sm font-bold text-coffee">扭蛋機</span>
+              </button>
+              <button onclick="navigateTo('/gallery')" class="sticker-btn p-4 rounded-2xl flex flex-col items-center gap-1.5 text-center cursor-pointer">
+                <span class="text-2xl">📷</span>
+                <span class="text-xs sm:text-sm font-bold text-coffee">回憶相簿</span>
+              </button>
+              <button onclick="navigateTo('/wishlist')" class="sticker-btn p-4 rounded-2xl flex flex-col items-center gap-1.5 text-center cursor-pointer">
+                <span class="text-2xl">🎯</span>
+                <span class="text-xs sm:text-sm font-bold text-coffee">約會願望清單</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- 多人共享即時白板 / 留言牆 -->
+          <section class="glass-card rounded-3xl p-5 sm:p-6 border-2 border-milktea/70 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-milktea/50">
+              <div>
+                <h2 class="text-lg sm:text-xl font-bold text-coffee flex items-center gap-2">
+                  <span>📝</span> 情侶共享白板 &amp; 即時便利貼牆
+                </h2>
+                <p class="text-xs text-coffeeSoft mt-0.5">所有人入嚟都可以即時新增、編輯、刪除便利貼，無需重新整理即可同步！</p>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-beige border border-milktea text-xs font-semibold text-coffee self-start">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                即時多人協作中 (${wbItems.length} 張貼紙)
+              </span>
+            </div>
+
+            <!-- 新增便利貼表單 -->
+            <form onsubmit="addWhiteboardNote(event)" class="grid grid-cols-1 sm:grid-cols-12 gap-2.5 bg-beige/75 p-3.5 rounded-2xl border border-milktea/60">
+              <div class="sm:col-span-3">
+                <select id="wbAuthorSelect" class="w-full px-3 py-2.5 rounded-xl bg-cream border border-milktea text-xs sm:text-sm font-semibold text-coffee focus:outline-none">
+                  <option value="Baby Queen 👑">Baby Queen 👑</option>
+                  <option value="Baby Boss 🐻">Baby Boss 🐻</option>
+                  <option value="神秘訪客 ✨">神秘訪客 ✨</option>
+                </select>
+              </div>
+              <div class="sm:col-span-7">
+                <input id="wbTextInput" type="text" required placeholder="寫低今日想同對方講嘅說話、約會備忘或甜蜜告白..." class="w-full px-3.5 py-2.5 rounded-xl bg-cream border border-milktea text-xs sm:text-sm text-coffee focus:border-caramel focus:outline-none" />
+              </div>
+              <div class="sm:col-span-2">
+                <button type="submit" class="sticker-btn w-full h-full py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold text-coffee cursor-pointer">
+                  ➕ 貼上白板
+                </button>
+              </div>
+            </form>
+
+            <!-- 便利貼卡片網格 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
+              ${wbItems.map((item) => `
+                <div class="${escapeHtml(item.color || "bg-cream")} rounded-2xl p-4 border-2 border-milktea/70 shadow-stickerSm flex flex-col justify-between gap-3 kawaii-tilt">
+                  <div class="space-y-2">
+                    <div class="flex items-center justify-between gap-2">
+                      <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-milkteaLight text-coffee">${escapeHtml(item.author)}</span>
+                      <span class="text-[11px] text-coffeeSoft">${escapeHtml(item.time || "")}</span>
+                    </div>
+                    <p class="text-sm text-coffee leading-relaxed whitespace-pre-wrap break-words">${escapeHtml(item.text)}</p>
+                  </div>
+                  <div class="flex items-center justify-between gap-1.5 pt-2 border-t border-milktea/40">
+                    <button onclick="stampWhiteboardHeart('${item.id}')" class="px-2.5 py-1 rounded-lg bg-coral/15 hover:bg-coral/25 text-xs font-bold text-coral cursor-pointer">
+                      ${item.hearts ? `❤️ ${item.hearts}` : "🤍 錫錫"}
+                    </button>
+                    <div class="flex items-center gap-1.5">
+                      <button onclick="startEditWhiteboardNote('${item.id}')" class="px-2.5 py-1 rounded-lg bg-beige hover:bg-milkteaLight text-xs font-semibold text-coffee cursor-pointer">✏️ 編輯</button>
+                      <button onclick="deleteWhiteboardNote('${item.id}')" class="px-2.5 py-1 rounded-lg bg-coral/15 hover:bg-coral/30 text-xs font-semibold text-coral cursor-pointer">🗑️ 刪除</button>
+                    </div>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </section>
+        </div>
+      `;
+    }
+
+    window.stampWhiteboardHeart = async function (id) {
+      const note = appState.data.whiteboard.find((n) => n.id === id);
+      if (note) {
+        note.hearts = (Number(note.hearts) || 0) + 1;
+        await persistSharedData();
+        showToast("💕 送上一粒甜蜜小愛心！");
+      }
+    };
+
+    window.addWhiteboardNote = async function (e) {
+      e.preventDefault();
+      const author = document.getElementById("wbAuthorSelect").value;
+      const input = document.getElementById("wbTextInput");
+      const text = input.value.trim();
+      if (!text) return;
+      const colors = ["bg-cream", "bg-beige", "bg-[#FFF7ED]"];
+      const now = new Date();
+      const timeStr = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, "0")}/${String(now.getDate()).padStart(2, "0")} ${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+      appState.data.whiteboard.unshift({
+        id: uid(),
+        author,
+        text,
+        time: timeStr,
+        color: colors[Math.floor(Math.random() * colors.length)]
+      });
+      input.value = "";
+      await persistSharedData();
+      showToast("📌 已即時貼上共享白板！");
+    };
+
+    window.startEditWhiteboardNote = function (id) {
+      const note = appState.data.whiteboard.find((n) => n.id === id);
+      if (!note) return;
+      const editBox = document.createElement("div");
+      editBox.className = "fixed inset-0 z-50 flex items-center justify-center bg-coffee/40 backdrop-blur-sm p-4";
+      editBox.innerHTML = `
+        <div class="glass-card rounded-3xl max-w-md w-full p-5 border-2 border-milktea shadow-sticker space-y-3">
+          <h3 class="font-bold text-base text-coffee">✏️ 編輯便利貼 (${escapeHtml(note.author)})</h3>
+          <textarea id="editWbTextarea" rows="4" class="w-full p-3 rounded-2xl bg-cream border-2 border-milktea text-sm text-coffee focus:border-caramel focus:outline-none">${escapeHtml(note.text)}</textarea>
+          <div class="flex justify-end gap-2">
+            <button id="cancelEditWbBtn" class="px-4 py-2 rounded-xl bg-beige text-xs font-bold text-coffee cursor-pointer">取消</button>
+            <button id="saveEditWbBtn" class="sticker-btn px-4 py-2 rounded-xl text-xs font-bold text-coffee cursor-pointer">💾 儲存並同步</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(editBox);
+      editBox.querySelector("#cancelEditWbBtn").onclick = () => editBox.remove();
+      editBox.querySelector("#saveEditWbBtn").onclick = async () => {
+        const val = editBox.querySelector("#editWbTextarea").value.trim();
+        if (val) {
+          note.text = val;
+          await persistSharedData();
+          showToast("✅ 便利貼已更新並同步！");
+        }
+        editBox.remove();
+      };
+    };
+
+    window.deleteWhiteboardNote = async function (id) {
+      appState.data.whiteboard = appState.data.whiteboard.filter((n) => n.id !== id);
+      await persistSharedData();
+      showToast("🗑️ 已刪除便利貼");
+    };
+
+    // ------------------------------------------------------------------------
+    // 情侶月曆頁面 (/calendar)
+    // ------------------------------------------------------------------------
+    function renderCalendarPage() {
+      const year = appState.calendarYear;
+      const month = appState.calendarMonth;
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const today = new Date();
+      const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+
+      const recordsByDate = {};
+      (appState.data.calendarRecords || []).forEach((r) => {
+        if (!recordsByDate[r.date]) recordsByDate[r.date] = [];
+        recordsByDate[r.date].push(r);
+      });
+
+      let cellsHtml = "";
+      for (let i = 0; i < firstDay; i++) {
+        cellsHtml += `<div class="rounded-2xl bg-beige/30 border border-dashed border-milktea/40 min-h-[76px] sm:min-h-[96px]"></div>`;
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dateStr = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+        const dayRecs = recordsByDate[dateStr] || [];
+        const isToday = dateStr === todayStr;
+        const isAnniversary = day === 18 || (month === 4 && day === 18);
+
+        cellsHtml += `
+          <button onclick="openDateDetailModal('${dateStr}')" class="text-left rounded-2xl p-2 sm:p-2.5 min-h-[78px] sm:min-h-[98px] border-2 transition flex flex-col justify-between cursor-pointer ${
+            isToday
+              ? "bg-gradient-to-br from-coral/20 to-milkteaLight border-coral shadow-stickerSm"
+              : dayRecs.length > 0
+              ? "bg-cream border-caramel/60 hover:border-caramel shadow-sm"
+              : "bg-beige/75 border-milktea/50 hover:bg-cream"
+          }">
+            <div class="flex items-center justify-between w-full">
+              <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-xs font-bold ${
+                isToday ? "bg-coral text-white" : "bg-milkteaLight/80 text-coffee"
+              }">${day}</span>
+              <span class="text-xs">${isAnniversary ? "❤️" : dayRecs.length > 0 ? "🧸" : ""}</span>
+            </div>
+            <div class="mt-1 space-y-0.5 w-full">
+              ${dayRecs.slice(0, 2).map((r) => `
+                <div class="truncate px-1.5 py-0.5 rounded-md bg-milkteaLight/80 text-[10px] sm:text-[11px] font-medium text-coffee">
+                  ${escapeHtml(r.mood.split(" ")[0])} ${escapeHtml(r.location || r.text)}
+                </div>
+              `).join("")}
+            </div>
+          </button>
+        `;
+      }
+
+      return `
+        <div class="space-y-5">
+          <div class="glass-card rounded-3xl p-5 sm:p-6 border-2 border-milktea/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-milkteaLight text-coffee">📅 IG 手帳風情侶月曆</span>
+              <h1 class="text-xl sm:text-2xl font-extrabold text-coffee mt-1">${year} 年 ${month + 1} 月</h1>
+              <p class="text-xs text-coffeeSoft">點擊任意日期貼紙查看或新增當日約會紀錄、多張照片與短影片 ✨</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <button onclick="changeCalendarMonth(-1)" class="sticker-btn px-3.5 py-2 rounded-xl text-xs font-bold text-coffee cursor-pointer">◀ 上個月</button>
+              <button onclick="openDateDetailModal('2026-10-12')" class="sticker-btn px-3.5 py-2 rounded-xl text-xs font-bold text-coral cursor-pointer">📍 範例 2026/10/12</button>
+              <button onclick="changeCalendarMonth(1)" class="sticker-btn px-3.5 py-2 rounded-xl text-xs font-bold text-coffee cursor-pointer">下個月 ▶</button>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-3xl p-3 sm:p-5 border-2 border-milktea/70">
+            <div class="grid grid-cols-7 gap-1.5 sm:gap-2.5 text-center text-xs font-bold text-coffeeSoft mb-2">
+              <div class="text-coral">日</div><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div class="text-misty">六</div>
+            </div>
+            <div class="grid grid-cols-7 gap-1.5 sm:gap-2.5">
+              ${cellsHtml}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    window.changeCalendarMonth = function (delta) {
+      let m = appState.calendarMonth + delta;
+      let y = appState.calendarYear;
+      if (m < 0) { m = 11; y -= 1; }
+      if (m > 11) { m = 0; y += 1; }
+      appState.calendarMonth = m;
+      appState.calendarYear = y;
+      renderCurrentRoute();
+    };
+
+    window.openDateDetailModal = function (dateStr) {
+      appState.selectedDateStr = dateStr;
+      appState.pendingDayPhotos = [];
+      appState.pendingDayVideo = "";
+      document.getElementById("modalDateTitle").textContent = dateStr.replace(/-/g, "/");
+      document.getElementById("dayMediaPreview").innerHTML = "";
+      renderExistingDayRecords();
+      const modal = document.getElementById("dateDetailModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    };
+
+    window.closeDateDetailModal = function () {
+      const modal = document.getElementById("dateDetailModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    };
+
+    function renderExistingDayRecords() {
+      const container = document.getElementById("existingDayRecords");
+      const list = (appState.data.calendarRecords || []).filter((r) => r.date === appState.selectedDateStr);
+      if (list.length === 0) {
+        container.innerHTML = `<div class="p-4 rounded-2xl bg-cream border border-dashed border-milktea text-center text-xs text-coffeeSoft">呢一日暫時未有紀錄，快啲喺下面寫低第一篇回憶啦 💕</div>`;
+        return;
+      }
+      container.innerHTML = list.map((rec) => `
+        <div class="p-4 rounded-2xl bg-cream border-2 border-milktea/70 space-y-2.5">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex flex-wrap items-center gap-1.5 text-xs font-bold">
+              <span class="px-2.5 py-0.5 rounded-full bg-milkteaLight text-coffee">${escapeHtml(rec.mood)}</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-beige text-coffee">${escapeHtml(rec.weather)}</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-beige text-coffee">🕒 ${escapeHtml(rec.period)}</span>
+              <span class="text-caramel">${"⭐".repeat(Number(rec.rating) || 5)}</span>
+            </div>
+            <button onclick="deleteDayRecord('${rec.id}')" class="text-xs text-coral hover:underline font-semibold cursor-pointer">刪除</button>
+          </div>
+          ${rec.location ? `<p class="text-xs font-bold text-caramel">${escapeHtml(rec.location)}</p>` : ""}
+          <p class="text-sm text-coffee leading-relaxed whitespace-pre-wrap">${escapeHtml(rec.text)}</p>
+          ${rec.photos && rec.photos.length ? `
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1">
+              ${rec.photos.map((p, pIdx) => `
+                <div class="relative group rounded-xl overflow-hidden border border-milktea">
+                  <img src="${escapeHtml(p)}" alt="約會照片" class="w-full h-28 object-cover" onerror="this.src='https://placehold.co/400x300/EAD7C3/4A3525?text=Memory'" />
+                  <label class="absolute bottom-1.5 right-1.5 px-2 py-0.5 rounded-lg bg-cream/90 hover:bg-milkteaLight text-[10px] font-bold text-coffee shadow cursor-pointer">
+                    📷 更換
+                    <input type="file" accept="image/*" class="hidden" onchange="replaceCalendarRecordPhoto('${rec.id}', ${pIdx}, event)" />
+                  </label>
+                </div>
+              `).join("")}
+            </div>
+          ` : ""}
+          <div class="pt-1">
+            <label class="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-beige hover:bg-milkteaLight border border-milktea text-[11px] font-bold text-coffee cursor-pointer">
+              ➕ 為呢條紀錄新增照片
+              <input type="file" accept="image/*" multiple class="hidden" onchange="appendCalendarRecordPhotos('${rec.id}', event)" />
+            </label>
+          </div>
+          ${rec.video ? `<video src="${escapeHtml(rec.video)}" controls class="w-full max-h-56 rounded-xl border border-milktea mt-2"></video>` : ""}
+        </div>
+      `).join("");
+    }
+
+    window.replaceCalendarRecordPhoto = async function (recId, photoIdx, e) {
+      const file = (e.target.files || [])[0];
+      if (!file) return;
+      const dataUrl = await readFileAsDataUrl(file);
+      const rec = appState.data.calendarRecords.find((r) => r.id === recId);
+      if (rec && rec.photos && rec.photos[photoIdx] !== undefined) {
+        rec.photos[photoIdx] = dataUrl;
+        await persistSharedData();
+        renderExistingDayRecords();
+        showToast("📷 已更換月曆照片！");
+      }
+    };
+
+    window.appendCalendarRecordPhotos = async function (recId, e) {
+      const files = Array.from(e.target.files || []);
+      if (!files.length) return;
+      const urls = await Promise.all(files.map(readFileAsDataUrl));
+      const rec = appState.data.calendarRecords.find((r) => r.id === recId);
+      if (rec) {
+        rec.photos = [...(rec.photos || []), ...urls];
+        await persistSharedData();
+        renderExistingDayRecords();
+        showToast("🖼️ 已新增照片至當日紀錄！");
+      }
+    };
+
+    window.handleDayFilesUpload = function (e) {
+      const files = Array.from(e.target.files || []);
+      files.forEach((file) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          appState.pendingDayPhotos.push(reader.result);
+          updateDayMediaPreview();
+        };
+        reader.readAsDataURL(file);
+      });
+    };
+
+    window.handleDayVideoUpload = function (e) {
+      const file = (e.target.files || [])[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        appState.pendingDayVideo = reader.result;
+        updateDayMediaPreview();
+      };
+      reader.readAsDataURL(file);
+    };
+
+    function updateDayMediaPreview() {
+      const box = document.getElementById("dayMediaPreview");
+      box.innerHTML = appState.pendingDayPhotos.map((src) => `<img src="${src}" class="w-16 h-16 object-cover rounded-xl border border-milktea" />`).join("")
+        + (appState.pendingDayVideo ? `<span class="px-2.5 py-1 rounded-xl bg-milkteaLight text-xs font-bold text-coffee">🎬 已附加短影片</span>` : "");
+    }
+
+    window.submitDayRecord = async function (e) {
+      e.preventDefault();
+      const urlText = document.getElementById("dayPhotoUrls").value.trim();
+      const extraUrls = urlText ? urlText.split(",").map((s) => s.trim()).filter(Boolean) : [];
+      const photos = [...appState.pendingDayPhotos, ...extraUrls];
+      const video = appState.pendingDayVideo || document.getElementById("dayVideoUrl").value.trim();
+
+      const newRec = {
+        id: uid(),
+        date: appState.selectedDateStr,
+        mood: document.getElementById("dayMood").value,
+        weather: document.getElementById("dayWeather").value,
+        period: document.getElementById("dayPeriod").value,
+        location: document.getElementById("dayLocation").value.trim(),
+        rating: Number(document.getElementById("dayRating").value) || 5,
+        text: document.getElementById("dayText").value.trim(),
+        photos,
+        video
+      };
+
+      appState.data.calendarRecords.unshift(newRec);
+      photos.forEach((p) => {
+        appState.data.gallery.unshift({
+          id: uid(),
+          title: newRec.location || `${newRec.date} 約會回憶`,
+          type: "photo",
+          url: p,
+          date: newRec.date,
+          location: newRec.location || "Sweet Date",
+          favorite: false
+        });
+      });
+
+      document.getElementById("dayRecordForm").reset();
+      appState.pendingDayPhotos = [];
+      appState.pendingDayVideo = "";
+      document.getElementById("dayMediaPreview").innerHTML = "";
+      await persistSharedData();
+      renderExistingDayRecords();
+      showToast("📅 已儲存當日紀錄並同步至相簿！");
+    };
+
+    window.deleteDayRecord = async function (id) {
+      appState.data.calendarRecords = appState.data.calendarRecords.filter((r) => r.id !== id);
+      await persistSharedData();
+      renderExistingDayRecords();
+      showToast("🗑️ 已刪除該筆月曆紀錄");
+    };
+
+    // ------------------------------------------------------------------------
+    // 戀愛日記頁 (/diary)
+    // ------------------------------------------------------------------------
+    function renderDiaryPage() {
+      const q = appState.diarySearch.toLowerCase();
+      const cat = appState.diaryCategory;
+      const filtered = (appState.data.diaries || []).filter((d) => {
+        const matchCat = cat === "全部" || d.category === cat;
+        const matchFav = !appState.diaryOnlyFav || d.favorite;
+        const matchQ = !q || d.title.toLowerCase().includes(q) || d.content.toLowerCase().includes(q) || (d.tags || []).some((t) => t.toLowerCase().includes(q));
+        return matchCat && matchFav && matchQ;
+      });
+
+      return `
+        <div class="space-y-6">
+          <div class="glass-card rounded-3xl p-5 sm:p-6 border-2 border-milktea/70 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h1 class="text-xl sm:text-2xl font-extrabold text-coffee">📖 戀愛時光線日記</h1>
+                <p class="text-xs text-coffeeSoft">一字一句記錄我哋嘅日常心動、旅行遊記同美食打卡</p>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <input id="diarySearchInput" type="text" value="${escapeHtml(appState.diarySearch)}" oninput="updateDiaryFilter('search', this.value)" placeholder="🔍 搜尋標題、內容或標籤..." class="px-3.5 py-2 rounded-xl bg-cream border border-milktea text-xs text-coffee focus:outline-none" />
+                <select onchange="updateDiaryFilter('category', this.value)" class="px-3 py-2 rounded-xl bg-cream border border-milktea text-xs font-semibold text-coffee">
+                  ${["全部", "日常心動", "旅行遊記", "美食打卡", "紀念日"].map((c) => `<option value="${c}" ${cat === c ? "selected" : ""}>${c}</option>`).join("")}
+                </select>
+                <button onclick="updateDiaryFilter('fav')" class="sticker-btn px-3 py-2 rounded-xl text-xs font-bold ${appState.diaryOnlyFav ? "text-coral" : "text-coffee"} cursor-pointer">
+                  ${appState.diaryOnlyFav ? "❤️ 只看收藏" : "🤍 全部日記"}
+                </button>
+              </div>
+            </div>
+
+            <!-- 新增日記表單 -->
+            <form onsubmit="addDiaryEntry(event)" class="p-4 rounded-2xl bg-beige/80 border border-milktea/60 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <input id="newDiaryTitle" type="text" required placeholder="日記標題（例如：第一次一齊睇日出）" class="px-3.5 py-2 rounded-xl bg-cream border border-milktea text-xs sm:text-sm text-coffee" />
+              <div class="grid grid-cols-2 gap-2">
+                <input id="newDiaryDate" type="date" required value="2026-11-25" class="px-3 py-2 rounded-xl bg-cream border border-milktea text-xs text-coffee" />
+                <select id="newDiaryCategory" class="px-3 py-2 rounded-xl bg-cream border border-milktea text-xs text-coffee">
+                  <option value="日常心動">日常心動</option>
+                  <option value="旅行遊記">旅行遊記</option>
+                  <option value="美食打卡">美食打卡</option>
+                  <option value="紀念日">紀念日</option>
+                </select>
+              </div>
+              <input id="newDiaryTags" type="text" placeholder="標籤（用逗號分隔，例如：迪士尼, 拍貼機, 奶茶）" class="px-3.5 py-2 rounded-xl bg-cream border border-milktea text-xs text-coffee" />
+              <div class="flex flex-col sm:flex-row gap-2">
+                <input id="newDiaryImage" type="text" value="${escapeHtml(appState.pendingDiaryImage)}" placeholder="封面圖片網址或直接上傳照片..." class="flex-1 px-3.5 py-2 rounded-xl bg-cream border border-milktea text-xs text-coffee" />
+                <label class="sticker-btn px-3 py-2 rounded-xl text-xs font-bold text-coffee cursor-pointer shrink-0 text-center">
+                  📷 上傳照片
+                  <input type="file" accept="image/*" class="hidden" onchange="handleNewDiaryPhotoUpload(event)" />
+                </label>
+              </div>
+              ${appState.pendingDiaryImage ? `
+                <div class="sm:col-span-2 flex items-center gap-3 p-2 rounded-xl bg-cream border border-milktea">
+                  <img src="${escapeHtml(appState.pendingDiaryImage)}" alt="預覽封面" class="w-16 h-16 object-cover rounded-xl border border-milktea" />
+                  <span class="text-xs font-semibold text-coffee">✅ 已準備好封面照片</span>
+                </div>
+              ` : ""}
+              <textarea id="newDiaryContent" rows="2" required placeholder="寫下詳細故事..." class="sm:col-span-2 p-3 rounded-xl bg-cream border border-milktea text-xs sm:text-sm text-coffee"></textarea>
+              <button type="submit" class="sm:col-span-2 sticker-btn py-2.5 rounded-xl text-xs sm:text-sm font-bold text-coffee cursor-pointer">✍️ 發佈新戀愛日記</button>
+            </form>
+          </div>
+
+          <!-- 時間線卡片 -->
+          <div class="relative pl-6 sm:pl-8 border-l-2 border-caramel/40 space-y-5">
+            ${filtered.length > 0 ? filtered.map((item) => `
+              <article class="relative glass-milktea rounded-3xl p-4 sm:p-5 border-2 border-milktea shadow-stickerSm kawaii-tilt">
+                <span class="absolute -left-[33px] sm:-left-[41px] top-6 w-4 h-4 rounded-full bg-coral border-4 border-cream shadow"></span>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+                  <div class="md:col-span-4 relative group">
+                    <img src="${escapeHtml(item.image || "https://placehold.co/600x400/EAD7C3/4A3525?text=Love+Diary")}" alt="${escapeHtml(item.title)}" class="w-full h-44 object-cover rounded-2xl border border-milktea" onerror="this.src='https://placehold.co/600x400/EAD7C3/4A3525?text=Love+Diary'" />
+                    <label class="absolute bottom-2 right-2 px-2.5 py-1 rounded-xl bg-cream/95 hover:bg-milkteaLight border border-milktea text-[11px] font-bold text-coffee shadow cursor-pointer">
+                      📷 更換照片
+                      <input type="file" accept="image/*" class="hidden" onchange="replaceDiaryCardPhoto('${item.id}', event)" />
+                    </label>
+                  </div>
+                  <div class="md:col-span-8 space-y-2.5">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-caramel text-white">${escapeHtml(item.category)}</span>
+                        <span class="text-xs font-semibold text-coffeeSoft">📅 ${escapeHtml(item.date)}</span>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <button onclick="toggleDiaryFavorite('${item.id}')" class="px-2.5 py-1 rounded-xl bg-cream border border-milktea text-xs font-bold cursor-pointer">${item.favorite ? "❤️ 已收藏" : "🤍 收藏"}</button>
+                        <button onclick="deleteDiaryEntry('${item.id}')" class="px-2.5 py-1 rounded-xl bg-coral/15 text-xs font-bold text-coral cursor-pointer">刪除</button>
+                      </div>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-coffee">${escapeHtml(item.title)}</h3>
+                    <p class="text-xs sm:text-sm text-coffee leading-relaxed">${escapeHtml(item.content)}</p>
+                    <div class="flex flex-wrap gap-1.5 pt-1">
+                      ${(item.tags || []).map((t) => `<span class="px-2.5 py-0.5 rounded-full bg-cream border border-milktea text-[11px] font-semibold text-coffeeSoft">#${escapeHtml(t)}</span>`).join("")}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            `).join("") : `
+              <div class="glass-card rounded-3xl p-8 text-center text-sm text-coffeeSoft border-2 border-dashed border-milktea">
+                找不到符合條件嘅戀愛日記，試吓調整搜尋關鍵字或分類啦 📖
+              </div>
+            `}
+          </div>
+        </div>
+      `;
+    }
+
+    window.updateDiaryFilter = function (type, val) {
+      if (type === "search") appState.diarySearch = val;
+      if (type === "category") appState.diaryCategory = val;
+      if (type === "fav") appState.diaryOnlyFav = !appState.diaryOnlyFav;
+      renderCurrentRoute();
+    };
+
+    window.handleNewDiaryPhotoUpload = async function (e) {
+      const file = (e.target.files || [])[0];
+      if (!file) return;
+      appState.pendingDiaryImage = await readFileAsDataUrl(file);
+      renderCurrentRoute();
+      showToast("📷 已載入日記封面照片！");
+    };
+
+    window.replaceDiaryCardPhoto = async function (diaryId, e) {
+      const file = (e.target.files || [])[0];
+      if (!file) return;
+      const dataUrl = await readFileAsDataUrl(file);
+      const item = appState.data.diaries.find((d) => d.id === diaryId);
+      if (item) {
+        item.image = dataUrl;
+        await persistSharedData();
+        showToast("📷 已更新戀愛日記照片！");
+      }
+    };
+
+    window.addDiaryEntry = async function (e) {
+      e.preventDefault();
+      const tagsRaw = document.getElementById("newDiaryTags").value;
+      const imgVal = document.getElementById("newDiaryImage").value.trim() || appState.pendingDiaryImage;
+      appState.data.diaries.unshift({
+        id: uid(),
+        title: document.getElementById("newDiaryTitle").value.trim(),
+        date: document.getElementById("newDiaryDate").value,
+        category: document.getElementById("newDiaryCategory").value,
+        tags: tagsRaw ? tagsRaw.split(",").map((s) => s.trim()).filter(Boolean) : ["甜蜜日常"],
+        favorite: false,
+        image: imgVal || "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80",
+        content: document.getElementById("newDiaryContent").value.trim()
+      });
+      appState.pendingDiaryImage = "";
+      await persistSharedData();
+      showToast("📖 新戀愛日記已發佈並同步！");
+    };
+
+    window.toggleDiaryFavorite = async function (id) {
+      const item = appState.data.diaries.find((d) => d.id === id);
+      if (item) {
+        item.favorite = !item.favorite;
+        await persistSharedData();
+      }
+    };
+
+    window.deleteDiaryEntry = async function (id) {
+      appState.data.diaries = appState.data.diaries.filter((d) => d.id !== id);
+      await persistSharedData();
+      showToast("🗑️ 已刪除日記");
+    };
+
+    // ------------------------------------------------------------------------
+    // 下一站幸福 (/next-stop) — 一齊想去嘅地方清單
+    // ------------------------------------------------------------------------
+    function renderNextStopPage() {
+      const stops = appState.data.nextStops || [];
+      const filtered = stops.filter((s) => {
+        const matchStatus =
+          appState.nextStopFilter === "全部" ||
+          (appState.nextStopFilter === "想去打卡" && !s.arrived) ||
+          (appState.nextStopFilter === "已抵達" && s.arrived);
+        const matchFav = !appState.nextStopOnlyFav || s.favorite;
+        return matchStatus && matchFav;
+      });
+
+      const arrivedCount = stops.filter((s) => s.arrived).length;
+
+      return `
+        <div class="space-y-6">
+          <!-- 頂部車票插畫橫幅 -->
+          <section class="glass-card rounded-3xl p-5 sm:p-7 border-2 border-milktea/70">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+              <div class="lg:col-span-8 space-y-2.5">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="px-3 py-0.5 rounded-full text-xs font-bold bg-milkteaLight text-coffee">🚉 NEXT STOP HAPPINESS</span>
+                  <span class="px-3 py-0.5 rounded-full text-xs font-bold bg-coral/15 text-coral">已抵達 ${arrivedCount} / ${stops.length} 站</span>
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-extrabold text-coffee">下一站幸福 · 我哋最想去嘅地方</h1>
+                <p class="text-xs sm:text-sm text-coffeeSoft leading-relaxed">
+                  把所有想一齊去嘅城市、海邊、小鎮同浪漫景點放上車票，寫低想去嘅理由、上傳靚相，隨時出發！💕
+                </p>
+                <div class="flex flex-wrap items-center gap-2 pt-1">
+                  ${["全部", "想去打卡", "已抵達"].map((tab) => `
+                    <button onclick="setNextStopFilter('${tab}')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold border transition cursor-pointer ${
+                      appState.nextStopFilter === tab
+                        ? "bg-caramel text-white border-coffee shadow-sm"
+                        : "bg-cream text-coffee border-milktea hover:bg-beige"
+                    }">${tab}</button>
+                  `).join("")}
+                  <button onclick="toggleNextStopOnlyFav()" class="sticker-btn px-3.5 py-1.5 rounded-xl text-xs font-bold ${appState.nextStopOnlyFav ? "text-coral" : "text-coffee"} cursor-pointer">
+                    ${appState.nextStopOnlyFav ? "❤️ 只看最愛" : "🤍 全部收藏"}
+                  </button>
+                </div>
+              </div>
+              <div class="lg:col-span-4">
+                <div id="nextStopTrainSlot"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 新增想去地方表單 -->
+          <form onsubmit="addNextStopPlace(event)" class="glass-milktea rounded-3xl p-5 border-2 border-milktea space-y-3">
+            <p class="font-bold text-sm sm:text-base text-coffee">🎫 開一張新車票：加入想一齊去嘅地方</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+              <input id="nsPlaceInput" type="text" required placeholder="想去嘅地方（例如：瑞士策馬特雪山）" class="px-3.5 py-2.5 rounded-xl bg-cream border border-milktea text-xs sm:text-sm text-coffee" />
+              <input id="nsRegionInput" type="text" placeholder="國家 / 地區（例如：歐洲 · 瑞士）" class="px-3.5 py-2.5 rounded-xl bg-cream border border-milktea text-xs sm:text-sm text-coffee" />
+              <input id="nsSeasonInput" type="text" placeholder="理想季節（例如：❄️ 冬日雪景）" class="px-3.5 py-2.5 rounded-xl bg-cream border border-milktea text-xs sm:text-sm text-coffee" />
+              <input id="nsDateInput" type="text" placeholder="預計時間（例如：2027年尾）" class="px-3.5 py-2.5 rounded-xl bg-cream border border-milktea text-xs sm:text-sm text-coffee" />
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-2.5 items-center">
+              <input id="nsNoteInput" type="text" required placeholder="寫低點解想一齊去呢度、想食咩或者想做咩..." class="lg:col-span-7 px-3.5 py-2.5 rounded-xl bg-cream border border-milktea text-xs sm:text-sm text-coffee" />
+              <div class="lg:col-span-3 flex gap-1.5">
+                <input id="nsPhotoInput" type="text" value="${escapeHtml(appState.pendingNextStopPhoto)}" placeholder="相片網址或上傳..." class="flex-1 px-3 py-2 rounded-xl bg-cream border border-milktea text-xs text-coffee" />
+                <label class="sticker-btn px-3 py-2 rounded-xl text-xs font-bold text-coffee cursor-pointer shrink-0">
+                  📷 揀相
+                  <input type="file" accept="image/*" class="hidden" onchange="handleNextStopPhotoUpload(event)" />
+                </label>
+              </div>
+              <button type="submit" class="lg:col-span-2 sticker-btn py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold text-coffee cursor-pointer">
+                🚉 加入下一站
+              </button>
+            </div>
+
+            ${appState.pendingNextStopPhoto ? `
+              <div class="flex items-center gap-3 p-2 rounded-xl bg-cream border border-milktea">
+                <img src="${escapeHtml(appState.pendingNextStopPhoto)}" alt="預覽景點相" class="w-14 h-14 rounded-xl object-cover border border-milktea" />
+                <span class="text-xs font-semibold text-coffee">✅ 已載入想去地方嘅相片！</span>
+              </div>
+            ` : ""}
+          </form>
+
+          <!-- 想去地方卡片列表 -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            ${filtered.length > 0 ? filtered.map((stop) => `
+              <article class="glass-card rounded-3xl overflow-hidden border-2 ${stop.arrived ? "border-emerald-400/80" : "border-milktea"} shadow-stickerSm flex flex-col justify-between kawaii-tilt">
+                <div>
+                  <div class="relative h-44 overflow-hidden">
+                    <img src="${escapeHtml(stop.photo || "https://placehold.co/600x400/EAD7C3/4A3525?text=Next+Stop")}" alt="${escapeHtml(stop.place)}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x400/EAD7C3/4A3525?text=Next+Stop'" />
+                    <span class="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold ${
+                      stop.arrived ? "bg-emerald-500 text-white" : "bg-cream/95 text-coffee border border-milktea"
+                    }">${stop.arrived ? "✅ 已幸福抵達" : "🚉 想去打卡"}</span>
+                    <label class="absolute bottom-2 right-2 px-2.5 py-1 rounded-xl bg-cream/95 hover:bg-milkteaLight border border-milktea text-[11px] font-bold text-coffee shadow cursor-pointer">
+                      📷 換相
+                      <input type="file" accept="image/*" class="hidden" onchange="replaceNextStopPhoto('${stop.id}', event)" />
+                    </label>
+                  </div>
+
+                  <div class="p-4 space-y-2">
+                    <div class="flex flex-wrap items-center justify-between gap-1 text-[11px] font-bold text-coffeeSoft">
+                      <span>🌍 ${escapeHtml(stop.region || "浪漫目的地")}</span>
+                      <span>${escapeHtml(stop.season || "✨ 隨時出發")}</span>
+                    </div>
+                    <h3 class="text-lg font-extrabold text-coffee">${escapeHtml(stop.place)}</h3>
+                    <p class="text-xs font-semibold text-caramel">🗓️ 理想時間：${escapeHtml(stop.targetDate || "一齊安排")}</p>
+                    <p class="text-xs sm:text-sm text-coffee leading-relaxed">${escapeHtml(stop.note || "")}</p>
+                  </div>
+                </div>
+
+                <div class="px-4 pb-4 pt-2 border-t border-milktea/40 space-y-2">
+                  <div class="flex items-center justify-between gap-1.5">
+                    <button onclick="toggleNextStopArrived('${stop.id}')" class="px-2.5 py-1.5 rounded-xl text-xs font-bold cursor-pointer ${
+                      stop.arrived ? "bg-emerald-100 text-emerald-800" : "bg-beige hover:bg-milkteaLight text-coffee"
+                    }">${stop.arrived ? "取消抵達" : "🏁 標記抵達"}</button>
+                    <button onclick="stampNextStopHeart('${stop.id}')" class="px-2.5 py-1.5 rounded-xl bg-coral/15 hover:bg-coral/25 text-xs font-bold text-coral cursor-pointer">
+                      ❤️ ${Number(stop.hearts) || 1}
+                    </button>
+                    <button onclick="toggleNextStopFavorite('${stop.id}')" class="px-2 py-1.5 rounded-xl bg-beige text-xs cursor-pointer">
+                      ${stop.favorite ? "💖" : "🤍"}
+                    </button>
+                    <button onclick="deleteNextStopPlace('${stop.id}')" class="px-2 py-1.5 rounded-xl bg-coral/15 text-xs font-bold text-coral cursor-pointer">
+                      刪除
+                    </button>
+                  </div>
+                  <div class="flex gap-1.5">
+                    <button onclick="sendNextStopToGacha('${stop.id}')" class="flex-1 py-1.5 px-2 rounded-xl bg-beige hover:bg-milkteaLight border border-milktea text-[11px] font-bold text-coffee cursor-pointer">
+                      🎡 放入扭蛋機
+                    </button>
+                    <button onclick="sendNextStopToWishlist('${stop.id}')" class="flex-1 py-1.5 px-2 rounded-xl bg-beige hover:bg-milkteaLight border border-milktea text-[11px] font-bold text-coffee cursor-pointer">
+                      🎯 加入願望清單
+                    </button>
+                  </div>
+                </div>
+              </article>
+            `).join("") : `
+              <div class="md:col-span-2 lg:col-span-3 glass-card rounded-3xl p-8 text-center text-sm text-coffeeSoft border-2 border-dashed border-milktea">
+                呢個篩選條件暫時未有想去嘅地方，快啲喺上面開張新車票啦 🚉
+              </div>
+            `}
+          </div>
+        </div>
+      `;
+    }
+
+    window.setNextStopFilter = function (filterLabel) {
+      appState.nextStopFilter = filterLabel;
+      renderCurrentRoute();
+    };
+
+    window.toggleNextStopOnlyFav = function () {
+      appState.nextStopOnlyFav = !appState.nextStopOnlyFav;
+      renderCurrentRoute();
+    };
+
+    window.handleNextStopPhotoUpload = async function (e) {
+      const file = (e.target.files || [])[0];
+      if (!file) return;
+      appState.pendingNextStopPhoto = await readFileAsDataUrl(file);
+      renderCurrentRoute();
+      showToast("📷 已載入想去地方嘅相片！");
+    };
+
+    window.replaceNextStopPhoto = async function (stopId, e) {
+      const file = (e.target.files || [])[0];
+      if (!file) return;
+      const dataUrl = await readFileAsDataUrl(file);
+      const stop = appState.data.nextStops.find((s) => s.id === stopId);
+      if (stop) {
+        stop.photo = dataUrl;
+        await persistSharedData();
+        showToast("📷 已更換「下一站幸福」相片！");
+      }
+    };
+
+    window.addNextStopPlace = async function (e) {
+      e.preventDefault();
+      const photoVal = document.getElementById("nsPhotoInput").value.trim() || appState.pendingNextStopPhoto;
+      const placeVal = document.getElementById("nsPlaceInput").value.trim();
+      appState.data.nextStops.unshift({
+        id: uid(),
+        place: placeVal,
+        region: document.getElementById("nsRegionInput").value.trim() || "甜蜜目的地",
+        season: document.getElementById("nsSeasonInput").value.trim() || "✨ 隨時出發",
+        targetDate: document.getElementById("nsDateInput").value.trim() || "一齊安排",
+        vibe: "浪漫約會",
+        arrived: false,
+        favorite: true,
+        hearts: 1,
+        note: document.getElementById("nsNoteInput").value.trim(),
+        photo: photoVal || "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80"
+      });
+      appState.pendingNextStopPhoto = "";
+      await persistSharedData();
+      showToast(`🚉 已加入下一站幸福：「${placeVal}」！`);
+    };
+
+    window.toggleNextStopArrived = async function (stopId) {
+      const stop = appState.data.nextStops.find((s) => s.id === stopId);
+      if (stop) {
+        stop.arrived = !stop.arrived;
+        await persistSharedData();
+        showToast(stop.arrived ? `🎉 已經幸福抵達「${stop.place}」啦！` : `🚉 已標記為「想去打卡」`);
+      }
+    };
+
+    window.stampNextStopHeart = async function (stopId) {
+      const stop = appState.data.nextStops.find((s) => s.id === stopId);
+      if (stop) {
+        stop.hearts = (Number(stop.hearts) || 0) + 1;
+        await persistSharedData();
+        showToast(`❤️ 為「${stop.place}」加咗一粒心心！`);
+      }
+    };
+
+    window.toggleNextStopFavorite = async function (stopId) {
+      const stop = appState.data.nextStops.find((s) => s.id === stopId);
+      if (stop) {
+        stop.favorite = !stop.favorite;
+        await persistSharedData();
+      }
+    };
+
+    window.deleteNextStopPlace = async function (stopId) {
+      appState.data.nextStops = appState.data.nextStops.filter((s) => s.id !== stopId);
+      await persistSharedData();
+      showToast("🗑️ 已移除呢一站");
+    };
+
+    window.sendNextStopToGacha = async function (stopId) {
+      const stop = appState.data.nextStops.find((s) => s.id === stopId);
+      if (!stop) return;
+      const entry = `🚉 ${stop.place}`;
+      if (!appState.data.customGachaItems.includes(entry)) {
+        appState.data.customGachaItems.unshift(entry);
+        await persistSharedData();
+      }
+      showToast(`🎡 已將「${stop.place}」放入扭蛋機！`);
+    };
+
+    window.sendNextStopToWishlist = async function (stopId) {
+      const stop = appState.data.nextStops.find((s) => s.id === stopId);
+      if (!stop) return;
+      appState.data.wishlist.unshift({
+        id: uid(),
+        title: `🚉 ${stop.place}`,
+        done: Boolean(stop.arrived),
+        favorite: true,
+        note: stop.note || `來自下一站幸福 (${stop.region})`
+      });
+      await persistSharedData();
+      showToast(`🎯 已將「${stop.place}」加入約會願望清單！`);
+    };
+
+    // ------------------------------------------------------------------------
+    // 扭蛋機頁面 (/gacha) — 超可愛日系貓耳蝴蝶結扭蛋機 + 互動旋鈕與膠囊色彩
+    // ------------------------------------------------------------------------
+    function renderGachaPage() {
+      const allItems = [...BASE_GACHA_ITEMS, ...(appState.data.customGachaItems || [])];
+      const activePool = getGachaPoolByCategory(appState.gachaCategory);
+      const categories = ["全部", "室內", "室外", "活動", "去處", "自訂"];
+      const capsuleStyles = {
+        coral: { top: "from-rose-300 to-coral", label: "草莓甜心 🍓" },
+        milktea: { top: "from-milkteaLight to-caramel", label: "珍珠奶茶 🧋" },
+        misty: { top: "from-sky-200 to-misty", label: "海風藍天 🌊" },
+        butter: { top: "from-amber-100 to-amber-300", label: "奶油布丁 🍮" }
+      };
+      const activeCapsule = capsuleStyles[appState.gachaCapsuleColor] || capsuleStyles.coral;
+
+      return `
+        <div class="max-w-3xl mx-auto space-y-6">
+          <div class="glass-card rounded-3xl p-6 sm:p-8 border-2 border-milktea text-center space-y-6 relative overflow-hidden">
+            ${appState.gachaBurstKey > 0 ? `
+              <div key="${appState.gachaBurstKey}" class="pointer-events-none flex justify-center gap-4 text-2xl">
+                <span class="heart-burst-item">💖</span>
+                <span class="heart-burst-item" style="animation-delay:0.12s">✨</span>
+                <span class="heart-burst-item" style="animation-delay:0.22s">🧋</span>
+                <span class="heart-burst-item" style="animation-delay:0.32s">💕</span>
+              </div>
+            ` : ""}
+
+            <div>
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-milkteaLight text-coffee">🎡 超可愛扭蛋機 · 總共 ${allItems.length} 款 (含 150+ 新增提案 &amp; 自訂)</span>
+              <h1 class="text-2xl sm:text-3xl font-extrabold text-coffee mt-2">今日去邊度拍拖好？轉一轉扭蛋機！</h1>
+              <p class="text-xs text-coffeeSoft mt-1">可按「全部 / 室內 / 室外 / 活動 / 去處 / 自訂」分類抽獎，目前池中有 <strong class="text-caramel">${activePool.length}</strong> 款！</p>
+            </div>
+
+            <!-- 扭蛋分類篩選 -->
+            <div class="flex flex-wrap justify-center gap-1.5">
+              ${categories.map((cat) => {
+                const count = getGachaPoolByCategory(cat).length;
+                const isActive = appState.gachaCategory === cat;
+                return `
+                  <button onclick="setGachaCategory('${cat}')" class="px-3 py-1.5 rounded-xl text-xs font-bold border transition cursor-pointer ${
+                    isActive
+                      ? "bg-coral text-white border-coffee shadow-sm"
+                      : "bg-cream text-coffee border-milktea hover:bg-beige"
+                  }">${escapeHtml(cat)} (${count})</button>
+                `;
+              }).join("")}
+            </div>
+
+            <!-- 膠囊口味選擇器 -->
+            <div class="flex flex-wrap justify-center gap-2">
+              ${Object.entries(capsuleStyles).map(([key, info]) => `
+                <button onclick="setGachaCapsuleColor('${key}')" class="px-3 py-1.5 rounded-full text-xs font-bold border transition cursor-pointer ${
+                  appState.gachaCapsuleColor === key
+                    ? "bg-caramel text-white border-coffee shadow-sm scale-105"
+                    : "bg-cream text-coffee border-milktea hover:bg-beige"
+                }">${info.label}</button>
+              `).join("")}
+            </div>
+
+            <!-- 超可愛貓耳蝴蝶結扭蛋機主體 -->
+            <div id="gachaMachineBox" onclick="spinGachaMachine()" class="${appState.gachaSpinning ? "gacha-shaking" : ""} relative mx-auto w-64 sm:w-72 select-none cursor-pointer group">
+              <!-- 可愛貓耳與蝴蝶結頂飾 -->
+              <div class="flex items-end justify-between px-6 -mb-4 relative z-10">
+                <div class="w-10 h-10 rounded-tl-2xl rounded-tr-full bg-milktea border-3 border-coffee/30 -rotate-15 flex items-center justify-center">
+                  <div class="w-5 h-5 rounded-tl-xl rounded-tr-full bg-coral/60"></div>
+                </div>
+                <div class="px-3 py-1 rounded-full bg-coral text-white text-xs font-extrabold border-2 border-coffee/25 shadow -translate-y-2">
+                  🎀 LOVE GACHA
+                </div>
+                <div class="w-10 h-10 rounded-tr-2xl rounded-tl-full bg-milktea border-3 border-coffee/30 rotate-15 flex items-center justify-center">
+                  <div class="w-5 h-5 rounded-tr-xl rounded-tl-full bg-coral/60"></div>
+                </div>
+              </div>
+
+              <!-- 透明玻璃球頂部 -->
+              <div class="mx-auto w-56 h-56 sm:w-64 sm:h-64 rounded-full bg-gradient-to-br from-white/90 via-cream/60 to-milkteaLight/65 border-4 border-milktea shadow-inner relative overflow-hidden flex items-center justify-center">
+                <div class="absolute top-4 left-7 w-14 h-7 rounded-full bg-white/80 -rotate-25"></div>
+                <span class="absolute top-6 right-8 text-sm animate-pulse">✨</span>
+                <!-- 內部彩色小扭蛋球 -->
+                <div class="grid grid-cols-3 gap-2 p-6 pt-12">
+                  <div class="w-12 h-12 rounded-full bg-gradient-to-b from-coral to-cream border-2 border-coffee/30 shadow flex items-center justify-center text-xs">♥</div>
+                  <div class="w-12 h-12 rounded-full bg-gradient-to-b from-misty to-cream border-2 border-coffee/30 shadow flex items-center justify-center text-xs">★</div>
+                  <div class="w-12 h-12 rounded-full bg-gradient-to-b from-caramel to-cream border-2 border-coffee/30 shadow flex items-center justify-center text-xs">🧋</div>
+                  <div class="w-12 h-12 rounded-full bg-gradient-to-b from-amber-300 to-cream border-2 border-coffee/30 shadow flex items-center justify-center text-xs">🍮</div>
+                  <div class="w-12 h-12 rounded-full bg-gradient-to-b from-rose-300 to-cream border-2 border-coffee/30 shadow flex items-center justify-center text-xs">🍓</div>
+                  <div class="w-12 h-12 rounded-full bg-gradient-to-b from-teal-300 to-cream border-2 border-coffee/30 shadow flex items-center justify-center text-xs">🍀</div>
+                </div>
+              </div>
+
+              <!-- 奶茶色圓角機身底座 + 可愛臉蛋與轉動旋鈕 -->
+              <div class="-mt-6 mx-auto w-60 sm:w-68 rounded-3xl bg-gradient-to-b from-milktea to-caramel p-5 border-4 border-coffee/20 shadow-sticker space-y-3">
+                <div class="flex items-center justify-center gap-4 text-xs font-bold text-coffee/80">
+                  <span>●</span>
+                  <span class="px-2.5 py-0.5 rounded-full bg-cream/85 text-[11px]">◡‿◡ 轉我抽獎</span>
+                  <span>●</span>
+                </div>
+                <div class="mx-auto w-16 h-16 rounded-full bg-cream border-4 border-milkteaLight flex items-center justify-center shadow-inner ${appState.gachaSpinning ? "crank-spinning" : "group-hover:rotate-45 transition-transform"}">
+                  <div class="w-12 h-3.5 rounded-full bg-coral border border-coffee/20"></div>
+                </div>
+                <div class="mx-auto w-24 h-11 rounded-2xl bg-coffee/85 border-2 border-milkteaLight flex items-center justify-center text-cream text-xs font-bold">
+                  出蛋口 🎁
+                </div>
+              </div>
+            </div>
+
+            <button onclick="spinGachaMachine()" ${appState.gachaSpinning ? "disabled" : ""} class="sticker-btn px-8 py-3.5 rounded-2xl text-base sm:text-lg font-extrabold text-coffee bg-gradient-to-r from-milkteaLight to-milktea cursor-pointer">
+              ${appState.gachaSpinning ? "✨ 扭蛋轉動中..." : "🎡 抽今日約會"}
+            </button>
+
+            <!-- 扭蛋掉落與裂開結果區 -->
+            ${appState.gachaResult ? `
+              <div class="capsule-dropping p-5 rounded-3xl bg-gradient-to-br from-cream to-beige border-2 border-coral shadow-sticker max-w-md mx-auto space-y-3">
+                <div class="flex items-center justify-center gap-2">
+                  <span class="inline-block px-3 py-0.5 rounded-full text-xs font-bold bg-gradient-to-r ${activeCapsule.top} text-coffee border border-coffee/20">
+                    ${activeCapsule.label} 膠囊已打開！
+                  </span>
+                  <button onclick="toggleGachaCrack()" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-beige border border-milktea text-coffee cursor-pointer">
+                    ${appState.gachaCrackOpen ? "合起膠囊" : "再裂開一次 ✨"}
+                  </button>
+                </div>
+                <p class="text-xl sm:text-2xl font-extrabold text-coffee pop-reveal">${escapeHtml(appState.gachaResult)}</p>
+                <div class="flex flex-wrap justify-center gap-2 pt-1">
+                  <button onclick="saveGachaToWishlist()" class="sticker-btn px-3.5 py-1.5 rounded-xl text-xs font-bold text-coffee cursor-pointer">🎯 加入願望清單</button>
+                  <button onclick="postGachaToWhiteboard()" class="sticker-btn px-3.5 py-1.5 rounded-xl text-xs font-bold text-coffee cursor-pointer">📌 貼上共享白板</button>
+                  <button onclick="spinGachaMachine()" class="sticker-btn px-3.5 py-1.5 rounded-xl text-xs font-bold text-coral cursor-pointer">🔄 再抽一次</button>
+                </div>
+              </div>
+            ` : ""}
+          </div>
+
+          <!-- 用家自行增加扭蛋內容 -->
+          <div class="glass-milktea rounded-3xl p-5 border-2 border-milktea space-y-3">
+            <h2 class="font-bold text-base text-coffee">➕ 自訂專屬約會扭蛋（即時同步俾另一半）</h2>
+            <form onsubmit="addCustomGachaItem(event)" class="flex flex-col sm:flex-row gap-2">
+              <input id="customGachaInput" type="text" required placeholder="輸入你想加入嘅約會點子，例如：🍓 一起整士多啤梨大福" class="flex-1 px-4 py-2.5 rounded-xl bg-cream border border-milktea text-xs sm:text-sm text-coffee" />
+              <button type="submit" class="sticker-btn px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-coffee cursor-pointer">放入扭蛋機</button>
+            </form>
+            ${(appState.data.customGachaItems || []).length > 0 ? `
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                ${appState.data.customGachaItems.map((item, idx) => `
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cream border border-milktea text-xs font-semibold text-coffee">
+                    ${escapeHtml(item)}
+                    <button onclick="removeCustomGachaItem(${idx})" class="text-coral font-bold cursor-pointer">×</button>
+                  </span>
+                `).join("")}
+              </div>
+            ` : ""}
+          </div>
+        </div>
+      `;
+    }
+
+    window.setGachaCategory = function (cat) {
+      appState.gachaCategory = cat;
+      renderCurrentRoute();
+    };
+
+    window.setGachaCapsuleColor = function (colorKey) {
+      appState.gachaCapsuleColor = colorKey;
+      renderCurrentRoute();
+    };
+
+    window.toggleGachaCrack = function () {
+      appState.gachaCrackOpen = !appState.gachaCrackOpen;
+      appState.gachaBurstKey += 1;
+      renderCurrentRoute();
+    };
+
+    window.spinGachaMachine = function () {
+      if (appState.gachaSpinning) return;
+      const pool = getGachaPoolByCategory(appState.gachaCategory);
+      if (!pool.length) {
+        showToast("⚠️ 呢個分類暫時未有扭蛋，先新增自訂扭蛋或切換分類！");
+        return;
+      }
+      appState.gachaSpinning = true;
+      appState.gachaResult = null;
+      appState.gachaCrackOpen = false;
+      renderCurrentRoute();
+      setTimeout(() => {
+        const picked = pool[Math.floor(Math.random() * pool.length)];
+        appState.gachaSpinning = false;
+        appState.gachaResult = picked;
+        appState.gachaCrackOpen = true;
+        appState.gachaBurstKey += 1;
+        renderCurrentRoute();
+        showToast(`🎡 抽中咗：${picked}`);
+      }, 950);
+    };
+
+    window.addCustomGachaItem = async function (e) {
+      e.preventDefault();
+      const input = document.getElementById("customGachaInput");
+      const val = input.value.trim();
+      if (!val) return;
+      appState.data.customGachaItems.unshift(val);
+      input.value = "";
+      await persistSharedData();
+      showToast("🎁 已將新約會點子放入扭蛋機！");
+    };
+
+    window.removeCustomGachaItem = async function (idx) {
+      appState.data.customGachaItems.splice(idx, 1);
+      await persistSharedData();
+    };
+
+    window.saveGachaToWishlist = async function () {
+      if (!appState.gachaResult) return;
+      appState.data.wishlist.unshift({
+        id: uid(),
+        title: appState.gachaResult,
+        done: false,
+        favorite: true,
+        note: "來自扭蛋機的甜蜜約會任務 🎡"
+      });
+      await persistSharedData();
+      showToast("🎯 已加入約會願望清單！");
+    };
+
+    window.postGachaToWhiteboard = async function () {
+      if (!appState.gachaResult) return;
+      appState.data.whiteboard.unshift({
+        id: uid(),
+        author: "扭蛋機精靈 🎡",
+        text: `今日扭蛋抽中：【${appState.gachaResult}】！準備出發啦 💕`,
+        time: "剛剛",
+        color: "bg-cream"
+      });
+      await persistSharedData();
+      showToast("📌 已發佈到共享白板！");
+    };
+
+    // ------------------------------------------------------------------------
+    // 回憶相簿 (/gallery) — 小紅書風瀑布流
+    // ------------------------------------------------------------------------
+    function renderGalleryPage() {
+      const items = (appState.data.gallery || []).filter((g) => !appState.galleryOnlyFav || g.favorite);
+      return `
+        <div class="space-y-6">
+          <div class="glass-card rounded-3xl p-5 sm:p-6 border-2 border-milktea/70 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h1 class="text-xl sm:text-2xl font-extrabold text-coffee">📷 甜蜜回憶瀑布流相簿</h1>
+                <p class="text-xs text-coffeeSoft">小紅書風雙人相片與短影片牆 · 支援全屏查看、收藏與一鍵分享</p>
+              </div>
+              <button onclick="toggleGalleryFavFilter()" class="sticker-btn px-4 py-2 rounded-xl text-xs font-bold ${appState.galleryOnlyFav ? "text-coral" : "text-coffee"} cursor-pointer self-start">
+                ${appState.galleryOnlyFav ? "❤️ 只看精選收藏" : "🤍 顯示全部回憶"}
+              </button>
+            </div>
+
+            <form onsubmit="addGalleryMedia(event)" class="grid grid-cols-1 sm:grid-cols-12 gap-2.5 p-3.5 rounded-2xl bg-beige/80 border border-milktea/60">
+              <input id="galTitleInput" type="text" required placeholder="相片標題（如：夕陽下的牽手）" class="sm:col-span-3 px-3 py-2 rounded-xl bg-cream border border-milktea text-xs text-coffee" />
+              <input id="galLocInput" type="text" placeholder="地點（如：West Kowloon）" class="sm:col-span-3 px-3 py-2 rounded-xl bg-cream border border-milktea text-xs text-coffee" />
+              <div class="sm:col-span-4 flex gap-1.5">
+                <input id="galUrlInput" type="text" required value="${escapeHtml(appState.pendingGalleryUrl)}" placeholder="貼上圖片網址或直接上傳..." class="flex-1 px-3 py-2 rounded-xl bg-cream border border-milktea text-xs text-coffee" />
+                <label class="sticker-btn px-2.5 py-2 rounded-xl text-xs font-bold text-coffee cursor-pointer shrink-0">
+                  📷 揀相
+                  <input type="file" accept="image/*" class="hidden" onchange="handleNewGalleryPhotoUpload(event)" />
+                </label>
+              </div>
+              <button type="submit" class="sm:col-span-2 sticker-btn py-2 px-3 rounded-xl text-xs font-bold text-coffee cursor-pointer">➕ 上傳回憶</button>
+              ${appState.pendingGalleryUrl ? `
+                <div class="sm:col-span-12 flex items-center gap-3 p-2 rounded-xl bg-cream border border-milktea">
+                  <img src="${escapeHtml(appState.pendingGalleryUrl)}" class="w-14 h-14 rounded-xl object-cover border border-milktea" />
+                  <span class="text-xs font-semibold text-coffee">✅ 已揀選相片，填好標題就可以按「上傳回憶」！</span>
+                </div>
+              ` : ""}
+            </form>
+          </div>
+
+          <div class="masonry-grid">
+            ${items.map((item) => `
+              <div class="masonry-item glass-card rounded-3xl overflow-hidden border-2 border-milktea/70 shadow-stickerSm group kawaii-tilt">
+                <div onclick="openLightbox('${item.id}')" class="relative cursor-pointer overflow-hidden">
+                  <img src="${escapeHtml(item.url)}" alt="${escapeHtml(item.title)}" class="w-full h-auto object-cover group-hover:scale-103 transition-transform duration-300" onerror="this.src='https://placehold.co/600x750/EAD7C3/4A3525?text=Couple+Photo'" />
+                  <span class="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-cream/90 text-[11px] font-bold text-coffee shadow-sm">📍 ${escapeHtml(item.location || "Sweet")}</span>
+                  <label onclick="event.stopPropagation()" class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-cream/90 hover:bg-milkteaLight text-[10px] font-bold text-coffee shadow cursor-pointer">
+                    📷 換相
+                    <input type="file" accept="image/*" class="hidden" onchange="replaceGalleryCardPhoto('${item.id}', event)" />
+                  </label>
+                </div>
+                <div class="p-3.5 space-y-2">
+                  <p class="font-bold text-sm text-coffee">${escapeHtml(item.title)}</p>
+                  <div class="flex items-center justify-between text-xs text-coffeeSoft">
+                    <span>${escapeHtml(item.date || "")}</span>
+                    <div class="flex items-center gap-1.5">
+                      <button onclick="toggleGalleryFav('${item.id}')" class="px-2 py-1 rounded-lg bg-beige hover:bg-milkteaLight font-bold cursor-pointer">${item.favorite ? "❤️" : "🤍"}</button>
+                      <button onclick="shareGalleryItem('${item.id}')" class="px-2 py-1 rounded-lg bg-beige hover:bg-milkteaLight font-semibold text-coffee cursor-pointer">🔗 分享</button>
+                      <button onclick="deleteGalleryItem('${item.id}')" class="px-2 py-1 rounded-lg bg-coral/15 text-coral font-semibold cursor-pointer">刪除</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    window.toggleGalleryFavFilter = function () {
+      appState.galleryOnlyFav = !appState.galleryOnlyFav;
+      renderCurrentRoute();
+    };
+
+    window.handleNewGalleryPhotoUpload = async function (e) {
+      const file = (e.target.files || [])[0];
+      if (!file) return;
+      appState.pendingGalleryUrl = await readFileAsDataUrl(file);
+      renderCurrentRoute();
+      showToast("📷 已載入相簿照片！");
+    };
+
+    window.replaceGalleryCardPhoto = async function (galId, e) {
+      const file = (e.target.files || [])[0];
+      if (!file) return;
+      const dataUrl = await readFileAsDataUrl(file);
+      const item = appState.data.gallery.find((g) => g.id === galId);
+      if (item) {
+        item.url = dataUrl;
+        await persistSharedData();
+        showToast("📷 已更換相簿相片！");
+      }
+    };
+
+    window.addGalleryMedia = async function (e) {
+      e.preventDefault();
+      const urlVal = document.getElementById("galUrlInput").value.trim() || appState.pendingGalleryUrl;
+      appState.data.gallery.unshift({
+        id: uid(),
+        title: document.getElementById("galTitleInput").value.trim(),
+        location: document.getElementById("galLocInput").value.trim() || "Sweet Spot",
+        type: "photo",
+        url: urlVal,
+        date: new Date().toISOString().slice(0, 10),
+        favorite: false
+      });
+      appState.pendingGalleryUrl = "";
+      await persistSharedData();
+      showToast("📷 新回憶已加入相簿！");
+    };
+
+    window.toggleGalleryFav = async function (id) {
+      const g = appState.data.gallery.find((i) => i.id === id);
+      if (g) {
+        g.favorite = !g.favorite;
+        await persistSharedData();
+      }
+    };
+
+    window.deleteGalleryItem = async function (id) {
+      appState.data.gallery = appState.data.gallery.filter((i) => i.id !== id);
+      await persistSharedData();
+      showToast("🗑️ 已刪除相片");
+    };
+
+    window.shareGalleryItem = function (id) {
+      const g = appState.data.gallery.find((i) => i.id === id);
+      if (!g) return;
+      const ta = document.createElement("textarea");
+      ta.value = `❤️ Baby Queen & Baby Boss 回憶分享：「${g.title}」(${g.location}) - ${g.url}`;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      showToast("🔗 已複製分享文字與相片連結！");
+    };
+
+    window.openLightbox = function (id) {
+      const g = appState.data.gallery.find((i) => i.id === id);
+      if (!g) return;
+      const box = document.getElementById("lightboxContent");
+      box.innerHTML = `
+        <img src="${escapeHtml(g.url)}" alt="${escapeHtml(g.title)}" class="w-full max-h-[72vh] object-contain rounded-2xl bg-coffee/10" onerror="this.src='https://placehold.co/800x600/EAD7C3/4A3525?text=Couple+Photo'" />
+        <div class="flex items-center justify-between pt-2">
+          <div>
+            <h3 class="font-extrabold text-base text-coffee">${escapeHtml(g.title)}</h3>
+            <p class="text-xs text-coffeeSoft">📍 ${escapeHtml(g.location)} · 📅 ${escapeHtml(g.date)}</p>
+          </div>
+          <button onclick="shareGalleryItem('${g.id}')" class="sticker-btn px-4 py-2 rounded-xl text-xs font-bold text-coffee cursor-pointer">🔗 複製分享連結</button>
+        </div>
+      `;
+      const modal = document.getElementById("lightboxModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    };
+
+    window.closeLightbox = function () {
+      const modal = document.getElementById("lightboxModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    };
+
+    // ------------------------------------------------------------------------
+    // 約會願望清單 (/wishlist)
+    // ------------------------------------------------------------------------
+    function renderWishlistPage() {
+      const list = appState.data.wishlist || [];
+      const doneCount = list.filter((w) => w.done).length;
+      return `
+        <div class="max-w-4xl mx-auto space-y-6">
+          <div class="glass-card rounded-3xl p-5 sm:p-6 border-2 border-milktea/70 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <h1 class="text-xl sm:text-2xl font-extrabold text-coffee">🎯 情侶約會願望清單 Bucket List</h1>
+                <p class="text-xs text-coffeeSoft">已完成 ${doneCount} / ${list.length} 個共同夢想，一齊逐一解鎖打卡！</p>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-milkteaLight text-xs font-bold text-coffee self-start">完成度 ${list.length ? Math.round((doneCount / list.length) * 100) : 0}% ✨</span>
+            </div>
+
+            <form onsubmit="addWishlistItem(event)" class="grid grid-cols-1 sm:grid-cols-12 gap-2.5 p-3.5 rounded-2xl bg-beige/80 border border-milktea/60">
+              <input id="wishTitleInput" type="text" required placeholder="新增願望（例如：一齊睇極光 🌌）" class="sm:col-span-5 px-3.5 py-2 rounded-xl bg-cream border border-milktea text-xs sm:text-sm text-coffee" />
+              <input id="wishNoteInput" type="text" placeholder="備註小細節..." class="sm:col-span-5 px-3.5 py-2 rounded-xl bg-cream border border-milktea text-xs sm:text-sm text-coffee" />
+              <button type="submit" class="sm:col-span-2 sticker-btn py-2 px-3 rounded-xl text-xs sm:text-sm font-bold text-coffee cursor-pointer">➕ 加入願望</button>
+            </form>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            ${list.map((w) => `
+              <div class="glass-card rounded-2xl p-4 border-2 ${w.done ? "border-emerald-400/70 bg-emerald-50/40" : "border-milktea"} shadow-stickerSm flex items-start justify-between gap-3">
+                <button onclick="toggleWishlistDone('${w.id}')" class="flex items-start gap-3 text-left flex-1 cursor-pointer">
+                  <span class="text-xl mt-0.5">${w.done ? "✅" : "⬜"}</span>
+                  <div>
+                    <p class="font-extrabold text-sm sm:text-base ${w.done ? "line-through text-coffeeSoft" : "text-coffee"}">${escapeHtml(w.title)}</p>
+                    <p class="text-xs text-coffeeSoft mt-0.5">${escapeHtml(w.note || "等待一齊實現嘅甜蜜約定")}</p>
+                  </div>
+                </button>
+                <div class="flex items-center gap-1.5">
+                  <button onclick="toggleWishlistFav('${w.id}')" class="px-2 py-1 rounded-lg bg-beige text-xs cursor-pointer">${w.favorite ? "❤️" : "🤍"}</button>
+                  <button onclick="deleteWishlistItem('${w.id}')" class="px-2 py-1 rounded-lg bg-coral/15 text-xs text-coral font-bold cursor-pointer">刪除</button>
+                </div>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    window.addWishlistItem = async function (e) {
+      e.preventDefault();
+      appState.data.wishlist.unshift({
+        id: uid(),
+        title: document.getElementById("wishTitleInput").value.trim(),
+        note: document.getElementById("wishNoteInput").value.trim(),
+        done: false,
+        favorite: false
+      });
+      await persistSharedData();
+      showToast("🎯 新願望已加入清單！");
+    };
+
+    window.toggleWishlistDone = async function (id) {
+      const w = appState.data.wishlist.find((i) => i.id === id);
+      if (w) {
+        w.done = !w.done;
+        await persistSharedData();
+        showToast(w.done ? "🎉 恭喜完成願望打卡！" : "🔄 已重設為進行中");
+      }
+    };
+
+    window.toggleWishlistFav = async function (id) {
+      const w = appState.data.wishlist.find((i) => i.id === id);
+      if (w) {
+        w.favorite = !w.favorite;
+        await persistSharedData();
+      }
+    };
+
+    window.deleteWishlistItem = async function (id) {
+      appState.data.wishlist = appState.data.wishlist.filter((i) => i.id !== id);
+      await persistSharedData();
+      showToast("🗑️ 已移除願望");
+    };
+
+    // ------------------------------------------------------------------------
+    // AI Love Assistant 功能
+    // ------------------------------------------------------------------------
+    window.generateDateSuggestion = function () {
+      const vibe = document.getElementById("aiVibeSelect").value;
+      const list = AI_SUGGESTIONS[vibe] || AI_SUGGESTIONS.chill;
+      const picked = list[Math.floor(Math.random() * list.length)];
+      document.getElementById("aiSuggestionText").textContent = picked;
+    };
+
+    window.cycleDailyQuestion = function () {
+      appState.questionIndex = (appState.questionIndex + 1) % DAILY_QUESTIONS.length;
+      document.getElementById("dailyQuestionText").textContent = DAILY_QUESTIONS[appState.questionIndex];
+    };
+
+    window.sendAiTextToWhiteboard = async function (elId) {
+      const txt = document.getElementById(elId).textContent.trim();
+      appState.data.whiteboard.unshift({
+        id: uid(),
+        author: "AI Love Assistant ✨",
+        text: `💡 今日約會提案：${txt}`,
+        time: "剛剛",
+        color: "bg-cream"
+      });
+      await persistSharedData();
+      closeAiAssistant();
+      showToast("📌 已將 AI 約會建議貼上共享白板！");
+    };
+
+    window.sendAiTextToWishlist = async function (elId) {
+      const txt = document.getElementById(elId).textContent.trim();
+      appState.data.wishlist.unshift({
+        id: uid(),
+        title: txt,
+        note: "AI Love Assistant 推薦約會 ✨",
+        done: false,
+        favorite: true
+      });
+      await persistSharedData();
+      closeAiAssistant();
+      showToast("🎯 已加入約會願望清單！");
+    };
+
+    window.postQuestionAnswerToWhiteboard = async function () {
+      const q = document.getElementById("dailyQuestionText").textContent.trim();
+      const ans = document.getElementById("dailyAnswerInput").value.trim();
+      if (!ans) {
+        showToast("⚠️ 請先輸入你嘅回答！");
+        return;
+      }
+      appState.data.whiteboard.unshift({
+        id: uid(),
+        author: "每日情侶問答 💌",
+        text: `${q}\n💬 回答：${ans}`,
+        time: "剛剛",
+        color: "bg-beige"
+      });
+      document.getElementById("dailyAnswerInput").value = "";
+      await persistSharedData();
+      closeAiAssistant();
+      showToast("💕 問答已同步發佈到共享白板！");
+    };
+
+    // ------------------------------------------------------------------------
+    // Firebase Config 解析與連線
+    // ------------------------------------------------------------------------
+    function parseFirebaseConfigInput(rawText) {
+      let cleaned = rawText.trim();
+      if (!cleaned) throw new Error("請輸入 Firebase Config");
+      const firstBrace = cleaned.indexOf("{");
+      const lastBrace = cleaned.lastIndexOf("}");
+      if (firstBrace !== -1 && lastBrace !== -1) {
+        cleaned = cleaned.slice(firstBrace, lastBrace + 1);
+      }
+      cleaned = cleaned.replace(/([{,]\s*)([a-zA-Z0-9_]+)\s*:/g, '$1"$2":');
+      cleaned = cleaned.replace(/,\s*}/g, "}");
+      return JSON.parse(cleaned);
+    }
+
+    async function connectToFirestoreWithConfig(cfg, { silentToast = false, closeModalAfter = false } = {}) {
+      if (!cfg || !cfg.apiKey || !cfg.projectId) {
+        showToast("⚠️ Firebase Config 缺少 apiKey 或 projectId");
+        return false;
+      }
+
+      const appName = "couple_diary_custom_app";
+      const existing = getApps().find((a) => a.name === appName);
+      const fbApp = existing || initializeApp(cfg, appName);
+
+      const auth = getAuth(fbApp);
+      try {
+        await signInAnonymously(auth);
+      } catch (authErr) {
+        console.warn("匿名登入提示：", authErr.message);
+      }
+
+      const db = getFirestore(fbApp);
+      if (appState.firestoreUnsub) {
+        appState.firestoreUnsub();
+        appState.firestoreUnsub = null;
+      }
+
+      appState.firestoreDb = db;
+      appState.syncMode = "firestore";
+      updateDbBadge();
+
+      const docRef = doc(db, SHARED_DOC_PATH[0], SHARED_DOC_PATH[1]);
+
+      appState.firestoreUnsub = onSnapshot(docRef, async (snap) => {
+        if (snap.exists()) {
+          const remoteData = snap.data();
+          const { lastUpdatedAt, ...cleanData } = remoteData;
+          appState.data = {
+            ...cloneSeedData(),
+            ...cleanData
+          };
+          renderCurrentRoute();
+        } else {
+          await setDoc(docRef, {
+            ...appState.data,
+            lastUpdatedAt: Date.now()
+          });
+        }
+      }, (err) => {
+        console.error("onSnapshot 監聽錯誤：", err);
+        showToast("⚠️ Firestore 即時監聽發生錯誤，請確認 Firestore Rules");
+      });
+
+      if (closeModalAfter) closeFirebaseModal();
+      if (!silentToast) {
+        showToast("🔥 已成功連線 Firebase Firestore 即時資料庫！");
+      }
+      return true;
+    }
+
+    window.connectFirebaseFromModal = async function () {
+      const raw = document.getElementById("firebaseConfigInput").value;
+      try {
+        const cfg = parseFirebaseConfigInput(raw);
+        await connectToFirestoreWithConfig(cfg, { closeModalAfter: true });
+      } catch (err) {
+        console.error(err);
+        showToast("❌ 設定格式有誤：" + err.message);
+      }
+    };
+
+    window.switchToDemoMode = function () {
+      if (appState.firestoreUnsub) {
+        appState.firestoreUnsub();
+        appState.firestoreUnsub = null;
+      }
+      appState.firestoreDb = null;
+      appState.syncMode = "broadcast";
+      updateDbBadge();
+      showToast("🔄 已切換至即時模擬同步模式");
+    };
+
+    window.openFirebaseModal = function () {
+      const modal = document.getElementById("firebaseModal");
+      if (!modal) return;
+      const modeEl = document.getElementById("modalCurrentMode");
+      if (modeEl) {
+        modeEl.textContent = appState.syncMode === "firestore"
+          ? "Firebase Firestore 雲端即時同步"
+          : "即時模擬同步 (BroadcastChannel)";
+      }
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    };
+
+    window.closeFirebaseModal = function () {
+      const modal = document.getElementById("firebaseModal");
+      if (!modal) return;
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    };
+
+    window.copyFirestoreRules = function () {
+      const rulesEl = document.getElementById("firestoreRulesCode");
+      if (!rulesEl) return;
+      const textArea = document.createElement("textarea");
+      textArea.value = rulesEl.textContent;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      showToast("📋 已複製 Firestore Rules！");
+    };
+
+    window.openAiAssistant = function () {
+      const modal = document.getElementById("aiAssistantModal");
+      if (!modal) return;
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    };
+
+    window.closeAiAssistant = function () {
+      const modal = document.getElementById("aiAssistantModal");
+      if (!modal) return;
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+    };
+
+    window.addEventListener("DOMContentLoaded", async () => {
+      createFloatingBubbles();
+      navigateTo("/");
+      setInterval(updateLoveTimer, 1000);
+
+      if (DEFAULT_FIREBASE_CONFIG) {
+        const cfgBox = document.getElementById("firebaseConfigInput");
+        if (cfgBox) {
+          cfgBox.value = JSON.stringify(DEFAULT_FIREBASE_CONFIG, null, 2);
+        }
+        try {
+          await connectToFirestoreWithConfig(DEFAULT_FIREBASE_CONFIG, { silentToast: true });
+        } catch (err) {
+          console.warn("自動連線 Firebase 失敗，已切換至本地即時同步：", err);
+          updateDbBadge();
+        }
+      } else {
+        updateDbBadge();
+      }
+    });
+  </script>
+</body>
+</html>
